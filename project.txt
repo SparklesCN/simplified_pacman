@@ -1,0 +1,62 @@
+** Project name:
+	Simplified PacMan 
+
+** Project repository:
+	https://bitbucket.org/XiaodongQuan/simplified_pacman\
+
+** Team members:
+	Xiaodong Quan,
+	Haihan Zhai
+
+** Description:
+	A simplified clone of the classic electronic game PacMan,
+	Will trying to clone a graphics based on, visible game.
+	Will trying to clone all the rules of the Traditional Version Pac-Man,
+		like the powerful-cherry will help PacMan kill ghost.
+	
+	Will be multiple level layer if possible.
+
+** Implementation approach:
+	<Primary Language>: 
+		C++ will be the primary (only) language during developement;
+	<Third-Party Library>:
+		Will develope the Pac-Man clone base on SDL2 library;
+	<Team Coordination Approch>:
+		For a 2 members small team, 
+		One of us will focus on material implement & using, like show graphics in game windows;
+		One of us will focus on logic layer.	
+	<Time-Line>:
+		Week6:
+			Start learning the using of ThirdParty Lib "SDL2",
+			Create basic visual windows & Start Menu;
+		Wekk7:
+			Collecting OpenSource Materials (Graphics, Backgrounds),
+			Implement collected sources inside project, connect graphics with Objects;
+				Logics:
+					eat to get score logic,
+					Ghost catching PacMan logic.
+		Week8:
+			Basic Game Demo,
+			Without Power-Cherry, Without multiple level choose.
+		Week9:
+			Add Power-Cherry in
+			(Will be a difficult part)
+			& Ghost Escape Logic while PacMan got Power-Cherry
+		Week10:
+			Set multiple level if possible,
+			better Ghost AI performance;
+			Clean Compile Warning, 
+			beautiful coding view.
+
+			Complete Presentation;
+
+** Risk management plan:
+	Not Familiar with SDL2, 
+	maybe some unknow confilic with developing environment (MAC OS),
+	maybe some triky management with unix and linux system.
+
+	Uncharted waters;
+	Worst Case:
+		Terminate the SDL2 based Pac-Man developing,
+		Switch to ASC-II Game with implemented logics.
+
