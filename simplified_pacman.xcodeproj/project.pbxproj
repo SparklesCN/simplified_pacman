@@ -33,6 +33,11 @@
 		DDB02B612213433200CA3EBD /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../../../../../Library/Frameworks/SDL2_ttf.framework; sourceTree = "<group>"; };
 		DDB02B632213433A00CA3EBD /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
 		DDB02B652213434100CA3EBD /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../../../../../Library/Frameworks/SDL2_image.framework; sourceTree = "<group>"; };
+		DDB02B6D221349B600CA3EBD /* READEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READEME.md; sourceTree = "<group>"; };
+		DDB02B6E221349CA00CA3EBD /* READEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READEME.md; sourceTree = "<group>"; };
+		DDB02B6F221349D700CA3EBD /* READEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READEME.md; sourceTree = "<group>"; };
+		DDB02B70221349E100CA3EBD /* READEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READEME.md; sourceTree = "<group>"; };
+		DDB02B71221349EA00CA3EBD /* READEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READEME.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +75,8 @@
 		DDB02B56221342FB00CA3EBD /* simplified_pacman */ = {
 			isa = PBXGroup;
 			children = (
-				DDB02B57221342FB00CA3EBD /* main.cpp */,
+				DDB02B682213493700CA3EBD /* src */,
+				DDB02B672213491600CA3EBD /* data */,
 			);
 			path = simplified_pacman;
 			sourceTree = "<group>";
@@ -84,6 +90,58 @@
 				DDB02B5F2213431F00CA3EBD /* SDL2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDB02B672213491600CA3EBD /* data */ = {
+			isa = PBXGroup;
+			children = (
+				DDB02B6C2213495E00CA3EBD /* fonts */,
+				DDB02B6B2213495500CA3EBD /* text */,
+				DDB02B6A2213494D00CA3EBD /* sounds */,
+				DDB02B692213494600CA3EBD /* images */,
+				DDB02B71221349EA00CA3EBD /* READEME.md */,
+			);
+			path = data;
+			sourceTree = "<group>";
+		};
+		DDB02B682213493700CA3EBD /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DDB02B57221342FB00CA3EBD /* main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		DDB02B692213494600CA3EBD /* images */ = {
+			isa = PBXGroup;
+			children = (
+				DDB02B70221349E100CA3EBD /* READEME.md */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		DDB02B6A2213494D00CA3EBD /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				DDB02B6F221349D700CA3EBD /* READEME.md */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
+		DDB02B6B2213495500CA3EBD /* text */ = {
+			isa = PBXGroup;
+			children = (
+				DDB02B6E221349CA00CA3EBD /* READEME.md */,
+			);
+			path = text;
+			sourceTree = "<group>";
+		};
+		DDB02B6C2213495E00CA3EBD /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DDB02B6D221349B600CA3EBD /* READEME.md */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
