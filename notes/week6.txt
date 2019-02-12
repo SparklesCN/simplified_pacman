@@ -1,3 +1,6 @@
+$ is sign for Xiaodong Quan
+# is sign for Haihan Zhai
+
 2/11/2019 log:
   $ Created folders for basic project layers.
   $ Created log file for week6.
