@@ -4,3 +4,5 @@ $ is sign for Xiaodong Quan
 2/11/2019 log:
   $ Created folders for basic project layers.
   $ Created log file for week6.
+  # Looking for the source game images.
+  # Looking for the source game sounds.
