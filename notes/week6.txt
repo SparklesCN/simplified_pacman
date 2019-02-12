@@ -1,0 +1,3 @@
+2/11/2019 log:
+  $ Created folders for basic project layers.
+  $ Created log file for week6.
