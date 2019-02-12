@@ -66,7 +66,7 @@ bool loadMedia()
     gHelloWorld = SDL_LoadBMP( "hello_world.bmp" );
     if( gHelloWorld == NULL )
     {
-        printf( "Unable to load image %s! SDL Error: %s\n", "02_getting_an_image_on_the_screen/hello_world.bmp", SDL_GetError() );
+        printf( "Unable to load image %s! SDL Error: %s\n", "hello_world.bmp", SDL_GetError() );
         success = false;
     }
     
@@ -110,7 +110,7 @@ int main( int argc, char* args[] )
             SDL_UpdateWindowSurface( gWindow );
             
             //Wait two seconds
-            SDL_Delay( 2000 );
+            SDL_Delay( 5000 );
         }
     }
     
