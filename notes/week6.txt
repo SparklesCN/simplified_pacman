@@ -9,3 +9,4 @@ $ is sign for Xiaodong Quan
 
 2/12/2019 log:
   $ Learning SDL2 Lib Basics.
+  $ Added basic Frame of SDL2 based on Xcode.
