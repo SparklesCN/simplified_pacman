@@ -6,3 +6,6 @@ $ is sign for Xiaodong Quan
   $ Created log file for week6.
   # Looking for the source game images.
   # Looking for the source game sounds.
+
+2/12/2019 log:
+  $ Learning SDL2 Lib Basics.
