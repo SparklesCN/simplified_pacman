@@ -55,6 +55,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD7E0C5222147645000FB769 /* lectures */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = lectures;
+			sourceTree = "<group>";
+		};
 		DDB02B4B221342FB00CA3EBD = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +114,7 @@
 		DDB02B682213493700CA3EBD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				DD7E0C5222147645000FB769 /* lectures */,
 				DDB02B57221342FB00CA3EBD /* main.cpp */,
 			);
 			path = src;
