@@ -16,4 +16,19 @@ $ is sign for Xiaodong Quan
 
 2/15/2019 log:
   $ figure out which parts needs learn from entire SDL2 Lib.
+    {
+      1. Create a Window;
+      2. Render images in Surface;
+            {
+              1. Color Keying;
+              2. Combine multiple images together;
+              ?. ... 
+            }
+      3. Collision control;
+            {
+              1. Logics between Ghost - Pacman - map by OpenGL;
+            }
+      4. *OpenGL for graphing the map;
+      ?. ...
+    }
   $ detailed learning.
