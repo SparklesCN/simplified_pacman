@@ -13,3 +13,7 @@ $ is sign for Xiaodong Quan
   $ Relogic the project's Frame.
   # upload all sources to the data folder.
   # created new branch testSDL for learning SDL2.
+
+2/15/2019 log:
+  $ figure out which parts needs learn from entire SDL2 Lib.
+  $ detailed learning.
