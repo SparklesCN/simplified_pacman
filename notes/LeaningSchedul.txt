@@ -1,0 +1,87 @@
+****************************WARNING***************************
+* ADD YOUR SIGN !AHEAD THE TOPIC IF U COMPLITED THE TUTORIAL *
+**************************************************************
+
+---------------------- $ - Xiaodong Quan ---------------------
+---------------------- # - HaiHan Zhai   ---------------------
+
+$ # Lession 01
+	开发环境的配置
+	-> Set up the develop environment
+
+$ Lession 02 
+	创建窗口，加载图片
+	-> How to Create a Window
+	-> How to log a .bpm Image on the Screen
+
+Lession 03
+	设置事件
+	-> How to set event (out the window)
+
+Lession 04
+	获取键盘输入，并设置事件
+	-> Get input from keyboard
+	-> set events for keyboard inputs
+
+Lession 06
+	安装拓展库，加载多格式图片
+	-> install librarys (extension)
+	-> How to log a .png Image on the Screen
+
+Lession 07
+	加载材质
+	-> Texture Loading and Rendering
+
+Lession 10 *
+	剔除图片中的背景色
+	-> color keying
+	-> delete the background color from metrial
+
+Lession 14 *
+	用多张图片实现动画效果
+	-> use multiple image to create dynamic image
+
+Lession 18
+	进阶的键盘输入事件处理
+	-> extend Keyboard input events handle
+
+Lession 26
+	让物体可以根据键盘输入移动
+	-> Motion
+	-> Make the Object moveble as keyboard inputs
+
+Lession 27
+	侦测物体碰撞，设置碰撞事件
+	-> Set the collision event
+	-> limit the Obj movement by AirWall
+
+Lession 44 
+	让物体移动根据事件，而不是刷新率
+	-> base on time to motion
+
+**************************************************************
+
+Lession 09 (For Later)
+	分割窗口
+	-> splite the window for mutilple viewport
+	-> like side info bar
+
+Lession 11 (Might Helpful)
+	分割精灵图
+	-> splite multiple images from one file
+
+Lession 16 (For Later)
+	创建并使用自定义字体
+	-> How to use custom fonts
+
+Lession 17 (For Later)
+	鼠标输入的获取，以及事件创建
+	-> Mouse input events
+
+Lession 21 (For Later)
+	添加音效以及背景音乐
+	-> Sound Effects and Music
+
+Lession 28 & 29 (Might)
+	进阶物体碰撞事件侦测
+	-> extend collision detect
