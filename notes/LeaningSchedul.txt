@@ -32,12 +32,12 @@ Lession 07
 	加载材质
 	-> Texture Loading and Rendering
 
-Lession 10 *
+Lession 10 
 	剔除图片中的背景色
 	-> color keying
 	-> delete the background color from metrial
 
-Lession 14 *
+Lession 14 
 	用多张图片实现动画效果
 	-> use multiple image to create dynamic image
 
