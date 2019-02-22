@@ -1,0 +1,6 @@
+$ For Xiaodong Quan
+# For Haihan Zhai
+
+2019/02/21:
+  $ Decided to use c++ graph the map for game, rather than OpenGL as schedule last week.
+  $ creating the logic to control pacman moving.  
