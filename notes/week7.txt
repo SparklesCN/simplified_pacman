@@ -5,3 +5,30 @@ $ For Xiaodong Quan
   $ Decided to use c++ graph the map for game, rather than OpenGL as schedule last week.
   # creating the game window.
   $ creating the logic to control pacman moving.  
+
+2019/02/22:
+  $ OutLine:
+        Beta Version -> 
+        {
+          -> without the menu window;
+          -> start game directly;
+          -> only make pacman moveble without any AirWall limitedly;
+        }
+
+        To Do ->
+        {
+          -> Add game map;
+              -> Create the AirWall;
+          
+          -> Make pacman moveble limited by AirWall;
+          
+          -> Create the Ghost object;
+            -> create the logic of Ghost to catch PacMan automatically;
+          
+          -> limit the Ghost's movement by AirWall
+        }
+    
+    -> Create a Window
+    -> show the pacman image in the widow
+    -> set the size
+    -> make it moveble
