@@ -9,7 +9,7 @@ $ # Lession 01
 	开发环境的配置
 	-> Set up the develop environment
 
-$ Lession 02 
+$ # Lession 02 
 	创建窗口，加载图片
 	-> How to Create a Window
 	-> How to log a .bpm Image on the Screen
