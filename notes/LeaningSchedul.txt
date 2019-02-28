@@ -14,21 +14,21 @@ $ # Lession 02
 	-> How to Create a Window
 	-> How to log a .bpm Image on the Screen
 
-Lession 03
+$ Lession 03
 	设置事件
 	-> How to set event (out the window)
 
-Lession 04
+$ Lession 04
 	获取键盘输入，并设置事件
 	-> Get input from keyboard
 	-> set events for keyboard inputs
 
-Lession 06
+$ Lession 06
 	安装拓展库，加载多格式图片
 	-> install librarys (extension)
 	-> How to log a .png Image on the Screen
 
-Lession 07
+$ Lession 07
 	加载材质
 	-> Texture Loading and Rendering
 
