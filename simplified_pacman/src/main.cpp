@@ -8,6 +8,8 @@
 #include <string>
 #include <vector>
 
+
+
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -30,9 +32,6 @@ public:
     bool loadFromRenderedText( std::string textureText, SDL_Color textColor );
 #endif
     
-    //Creates blank texture
-    bool createBlank( int width, int height, SDL_TextureAccess = SDL_TEXTUREACCESS_STREAMING );
-    
     //Deallocates texture
     void free();
     
@@ -48,62 +47,17 @@ public:
     //Renders texture at given point
     void render( int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE );
     
-    //Set self as render target
-    void setAsRenderTarget();
-    
     //Gets image dimensions
     int getWidth();
     int getHeight();
     
-    //Pixel manipulators
-    bool lockTexture();
-    bool unlockTexture();
-    void* getPixels();
-    void copyPixels( void* pixels );
-    int getPitch();
-    Uint32 getPixel32( unsigned int x, unsigned int y );
-    
 private:
     //The actual hardware texture
     SDL_Texture* mTexture;
-    void* mPixels;
-    int mPitch;
     
     //Image dimensions
     int mWidth;
     int mHeight;
-};
-
-//The application time based timer
-class LTimer
-{
-public:
-    //Initializes variables
-    LTimer();
-    
-    //The various clock actions
-    void start();
-    void stop();
-    void pause();
-    void unpause();
-    
-    //Gets the timer's time
-    Uint32 getTicks();
-    
-    //Checks the status of the timer
-    bool isStarted();
-    bool isPaused();
-    
-private:
-    //The clock time when the timer started
-    Uint32 mStartTicks;
-    
-    //The ticks stored when the timer was paused
-    Uint32 mPausedTicks;
-    
-    //The timer status
-    bool mPaused;
-    bool mStarted;
 };
 
 //The dot that will move around on the screen
@@ -115,7 +69,7 @@ public:
     static const int DOT_HEIGHT = 20;
     
     //Maximum axis velocity of the dot
-    static const int DOT_VEL = 640;
+    static const int DOT_VEL = 10;
     
     //Initializes the variables
     Dot();
@@ -123,15 +77,21 @@ public:
     //Takes key presses and adjusts the dot's velocity
     void handleEvent( SDL_Event& e );
     
-    //Moves the dot
-    void move( float timeStep );
+    //Moves the dot and checks collision
+    void move( SDL_Rect& wall );
     
     //Shows the dot on the screen
     void render();
     
 private:
-    float mPosX, mPosY;
-    float mVelX, mVelY;
+    //The X and Y offsets of the dot
+    int mPosX, mPosY;
+    
+    //The velocity of the dot
+    int mVelX, mVelY;
+    
+    //Dot's collision box
+    SDL_Rect mCollider;
 };
 
 //Starts up SDL and creates window
@@ -142,6 +102,9 @@ bool loadMedia();
 
 //Frees media and shuts down SDL
 void close();
+
+//Box collision detector
+bool checkCollision( SDL_Rect a, SDL_Rect b );
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
@@ -158,8 +121,6 @@ LTexture::LTexture()
     mTexture = NULL;
     mWidth = 0;
     mHeight = 0;
-    mPixels = NULL;
-    mPitch = 0;
 }
 
 LTexture::~LTexture()
@@ -184,59 +145,20 @@ bool LTexture::loadFromFile( std::string path )
     }
     else
     {
-        //Convert surface to display format
-        SDL_Surface* formattedSurface = SDL_ConvertSurfaceFormat( loadedSurface, SDL_PIXELFORMAT_RGBA8888, NULL );
-        if( formattedSurface == NULL )
+        //Color key image
+        SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0xFF, 0xFF ) );
+        
+        //Create texture from surface pixels
+        newTexture = SDL_CreateTextureFromSurface( gRenderer, loadedSurface );
+        if( newTexture == NULL )
         {
-            printf( "Unable to convert loaded surface to display format! %s\n", SDL_GetError() );
+            printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
         }
         else
         {
-            //Create blank streamable texture
-            newTexture = SDL_CreateTexture( gRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, formattedSurface->w, formattedSurface->h );
-            if( newTexture == NULL )
-            {
-                printf( "Unable to create blank texture! SDL Error: %s\n", SDL_GetError() );
-            }
-            else
-            {
-                //Enable blending on texture
-                SDL_SetTextureBlendMode( newTexture, SDL_BLENDMODE_BLEND );
-                
-                //Lock texture for manipulation
-                SDL_LockTexture( newTexture, &formattedSurface->clip_rect, &mPixels, &mPitch );
-                
-                //Copy loaded/formatted surface pixels
-                memcpy( mPixels, formattedSurface->pixels, formattedSurface->pitch * formattedSurface->h );
-                
-                //Get image dimensions
-                mWidth = formattedSurface->w;
-                mHeight = formattedSurface->h;
-                
-                //Get pixel data in editable format
-                Uint32* pixels = (Uint32*)mPixels;
-                int pixelCount = ( mPitch / 4 ) * mHeight;
-                
-                //Map colors
-                Uint32 colorKey = SDL_MapRGB( formattedSurface->format, 0, 0xFF, 0xFF );
-                Uint32 transparent = SDL_MapRGBA( formattedSurface->format, 0x00, 0xFF, 0xFF, 0x00 );
-                
-                //Color key pixels
-                for( int i = 0; i < pixelCount; ++i )
-                {
-                    if( pixels[ i ] == colorKey )
-                    {
-                        pixels[ i ] = transparent;
-                    }
-                }
-                
-                //Unlock texture to update
-                SDL_UnlockTexture( newTexture );
-                mPixels = NULL;
-            }
-            
-            //Get rid of old formatted surface
-            SDL_FreeSurface( formattedSurface );
+            //Get image dimensions
+            mWidth = loadedSurface->w;
+            mHeight = loadedSurface->h;
         }
         
         //Get rid of old loaded surface
@@ -285,23 +207,6 @@ bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColo
 }
 #endif
 
-bool LTexture::createBlank( int width, int height, SDL_TextureAccess access )
-{
-    //Create uninitialized texture
-    mTexture = SDL_CreateTexture( gRenderer, SDL_PIXELFORMAT_RGBA8888, access, width, height );
-    if( mTexture == NULL )
-    {
-        printf( "Unable to create blank texture! SDL Error: %s\n", SDL_GetError() );
-    }
-    else
-    {
-        mWidth = width;
-        mHeight = height;
-    }
-    
-    return mTexture != NULL;
-}
-
 void LTexture::free()
 {
     //Free texture if it exists
@@ -311,8 +216,6 @@ void LTexture::free()
         mTexture = NULL;
         mWidth = 0;
         mHeight = 0;
-        mPixels = NULL;
-        mPitch = 0;
     }
 }
 
@@ -350,12 +253,6 @@ void LTexture::render( int x, int y, SDL_Rect* clip, double angle, SDL_Point* ce
     SDL_RenderCopyEx( gRenderer, mTexture, clip, &renderQuad, angle, center, flip );
 }
 
-void LTexture::setAsRenderTarget()
-{
-    //Make self render target
-    SDL_SetRenderTarget( gRenderer, mTexture );
-}
-
 int LTexture::getWidth()
 {
     return mWidth;
@@ -366,188 +263,15 @@ int LTexture::getHeight()
     return mHeight;
 }
 
-bool LTexture::lockTexture()
-{
-    bool success = true;
-    
-    //Texture is already locked
-    if( mPixels != NULL )
-    {
-        printf( "Texture is already locked!\n" );
-        success = false;
-    }
-    //Lock texture
-    else
-    {
-        if( SDL_LockTexture( mTexture, NULL, &mPixels, &mPitch ) != 0 )
-        {
-            printf( "Unable to lock texture! %s\n", SDL_GetError() );
-            success = false;
-        }
-    }
-    
-    return success;
-}
-
-bool LTexture::unlockTexture()
-{
-    bool success = true;
-    
-    //Texture is not locked
-    if( mPixels == NULL )
-    {
-        printf( "Texture is not locked!\n" );
-        success = false;
-    }
-    //Unlock texture
-    else
-    {
-        SDL_UnlockTexture( mTexture );
-        mPixels = NULL;
-        mPitch = 0;
-    }
-    
-    return success;
-}
-
-void* LTexture::getPixels()
-{
-    return mPixels;
-}
-
-void LTexture::copyPixels( void* pixels )
-{
-    //Texture is locked
-    if( mPixels != NULL )
-    {
-        //Copy to locked pixels
-        memcpy( mPixels, pixels, mPitch * mHeight );
-    }
-}
-
-int LTexture::getPitch()
-{
-    return mPitch;
-}
-
-Uint32 LTexture::getPixel32( unsigned int x, unsigned int y )
-{
-    //Convert the pixels to 32 bit
-    Uint32 *pixels = (Uint32*)mPixels;
-    
-    //Get the pixel requested
-    return pixels[ ( y * ( mPitch / 4 ) ) + x ];
-}
-
-
-LTimer::LTimer()
-{
-    //Initialize the variables
-    mStartTicks = 0;
-    mPausedTicks = 0;
-    
-    mPaused = false;
-    mStarted = false;
-}
-
-void LTimer::start()
-{
-    //Start the timer
-    mStarted = true;
-    
-    //Unpause the timer
-    mPaused = false;
-    
-    //Get the current clock time
-    mStartTicks = SDL_GetTicks();
-    mPausedTicks = 0;
-}
-
-void LTimer::stop()
-{
-    //Stop the timer
-    mStarted = false;
-    
-    //Unpause the timer
-    mPaused = false;
-    
-    //Clear tick variables
-    mStartTicks = 0;
-    mPausedTicks = 0;
-}
-
-void LTimer::pause()
-{
-    //If the timer is running and isn't already paused
-    if( mStarted && !mPaused )
-    {
-        //Pause the timer
-        mPaused = true;
-        
-        //Calculate the paused ticks
-        mPausedTicks = SDL_GetTicks() - mStartTicks;
-        mStartTicks = 0;
-    }
-}
-
-void LTimer::unpause()
-{
-    //If the timer is running and paused
-    if( mStarted && mPaused )
-    {
-        //Unpause the timer
-        mPaused = false;
-        
-        //Reset the starting ticks
-        mStartTicks = SDL_GetTicks() - mPausedTicks;
-        
-        //Reset the paused ticks
-        mPausedTicks = 0;
-    }
-}
-
-Uint32 LTimer::getTicks()
-{
-    //The actual timer time
-    Uint32 time = 0;
-    
-    //If the timer is running
-    if( mStarted )
-    {
-        //If the timer is paused
-        if( mPaused )
-        {
-            //Return the number of ticks when the timer was paused
-            time = mPausedTicks;
-        }
-        else
-        {
-            //Return the current time minus the start time
-            time = SDL_GetTicks() - mStartTicks;
-        }
-    }
-    
-    return time;
-}
-
-bool LTimer::isStarted()
-{
-    //Timer is running and paused or unpaused
-    return mStarted;
-}
-
-bool LTimer::isPaused()
-{
-    //Timer is running and paused
-    return mPaused && mStarted;
-}
-
-
 Dot::Dot()
 {
-    //Initialize the position
+    //Initialize the offsets
     mPosX = 0;
     mPosY = 0;
+    
+    //Set collision box dimension
+    mCollider.w = DOT_WIDTH;
+    mCollider.h = DOT_HEIGHT;
     
     //Initialize the velocity
     mVelX = 0;
@@ -582,39 +306,37 @@ void Dot::handleEvent( SDL_Event& e )
     }
 }
 
-void Dot::move( float timeStep )
+void Dot::move( SDL_Rect& wall )
 {
     //Move the dot left or right
-    mPosX += mVelX * timeStep;
+    mPosX += mVelX;
+    mCollider.x = mPosX;
     
-    //If the dot went too far to the left or right
-    if( mPosX < 0 )
+    //If the dot collided or went too far to the left or right
+    if( ( mPosX < 0 ) || ( mPosX + DOT_WIDTH > SCREEN_WIDTH ) || checkCollision( mCollider, wall ) )
     {
-        mPosX = 0;
-    }
-    else if( mPosX > SCREEN_WIDTH - DOT_WIDTH )
-    {
-        mPosX = SCREEN_WIDTH - DOT_WIDTH;
+        //Move back
+        mPosX -= mVelX;
+        mCollider.x = mPosX;
     }
     
     //Move the dot up or down
-    mPosY += mVelY * timeStep;
+    mPosY += mVelY;
+    mCollider.y = mPosY;
     
-    //If the dot went too far up or down
-    if( mPosY < 0 )
+    //If the dot collided or went too far up or down
+    if( ( mPosY < 0 ) || ( mPosY + DOT_HEIGHT > SCREEN_HEIGHT ) || checkCollision( mCollider, wall ) )
     {
-        mPosY = 0;
-    }
-    else if( mPosY > SCREEN_HEIGHT - DOT_HEIGHT )
-    {
-        mPosY = SCREEN_HEIGHT - DOT_HEIGHT;
+        //Move back
+        mPosY -= mVelY;
+        mCollider.y = mPosY;
     }
 }
 
 void Dot::render()
 {
     //Show the dot
-    gDotTexture.render( (int)mPosX, (int)mPosY );
+    gDotTexture.render( mPosX, mPosY );
 }
 
 bool init()
@@ -645,8 +367,8 @@ bool init()
         }
         else
         {
-            //Create renderer for window
-            gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED );
+            //Create vsynced renderer for window
+            gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
             if( gRenderer == NULL )
             {
                 printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -676,8 +398,8 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
     
-    //Load dot texture
-    if( !gDotTexture.loadFromFile( "44_frame_independent_movement/dot.bmp" ) )
+    //Load press texture
+    if( !gDotTexture.loadFromFile( "27_collision_detection/dot.bmp" ) )
     {
         printf( "Failed to load dot texture!\n" );
         success = false;
@@ -700,6 +422,51 @@ void close()
     //Quit SDL subsystems
     IMG_Quit();
     SDL_Quit();
+}
+
+bool checkCollision( SDL_Rect a, SDL_Rect b )
+{
+    //The sides of the rectangles
+    int leftA, leftB;
+    int rightA, rightB;
+    int topA, topB;
+    int bottomA, bottomB;
+    
+    //Calculate the sides of rect A
+    leftA = a.x;
+    rightA = a.x + a.w;
+    topA = a.y;
+    bottomA = a.y + a.h;
+    
+    //Calculate the sides of rect B
+    leftB = b.x;
+    rightB = b.x + b.w;
+    topB = b.y;
+    bottomB = b.y + b.h;
+    
+    //If any of the sides from A are outside of B
+    if( bottomA <= topB )
+    {
+        return false;
+    }
+    
+    if( topA >= bottomB )
+    {
+        return false;
+    }
+    
+    if( rightA <= leftB )
+    {
+        return false;
+    }
+    
+    if( leftA >= rightB )
+    {
+        return false;
+    }
+    
+    //If none of the sides from A are outside B
+    return true;
 }
 
 int main( int argc, char* args[] )
@@ -727,8 +494,12 @@ int main( int argc, char* args[] )
             //The dot that will be moving around on the screen
             Dot dot;
             
-            //Keeps track of time between steps
-            LTimer stepTimer;
+            //Set the wall
+            SDL_Rect wall;
+            wall.x = 300;
+            wall.y = 40;
+            wall.w = 40;
+            wall.h = 400;
             
             //While application is running
             while( !quit )
@@ -746,18 +517,16 @@ int main( int argc, char* args[] )
                     dot.handleEvent( e );
                 }
                 
-                //Calculate time step
-                float timeStep = stepTimer.getTicks() / 1000.f;
-                
-                //Move for time step
-                dot.move( timeStep );
-                
-                //Restart step timer
-                stepTimer.start();
+                //Move the dot and check collision
+                dot.move( wall );
                 
                 //Clear screen
                 SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
                 SDL_RenderClear( gRenderer );
+                
+                //Render wall
+                SDL_SetRenderDrawColor( gRenderer, 0x00, 0x00, 0x00, 0xFF );
+                SDL_RenderDrawRect( gRenderer, &wall );
                 
                 //Render dot
                 dot.render();
