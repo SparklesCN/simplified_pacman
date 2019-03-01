@@ -3,3 +3,5 @@ $ for Xiaodong Quan, # for Haihan Zhai
 2/28/2019
   $ # Testing collision and group meeting.
 
+3/1/2019
+  $ # Logically Pacman movement
