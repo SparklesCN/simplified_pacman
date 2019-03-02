@@ -14,11 +14,11 @@ $ # Lession 02
 	-> How to Create a Window
 	-> How to log a .bpm Image on the Screen
 
-$ Lession 03
+$ # Lession 03
 	设置事件
 	-> How to set event (out the window)
 
-$ Lession 04
+$ # Lession 04
 	获取键盘输入，并设置事件
 	-> Get input from keyboard
 	-> set events for keyboard inputs
