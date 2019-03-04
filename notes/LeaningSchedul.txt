@@ -23,7 +23,7 @@ $ # Lession 04
 	-> Get input from keyboard
 	-> set events for keyboard inputs
 
-$ Lession 06
+$ #Lession 06
 	安装拓展库，加载多格式图片
 	-> install librarys (extension)
 	-> How to log a .png Image on the Screen
