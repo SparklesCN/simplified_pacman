@@ -5,3 +5,6 @@ $ for Xiaodong Quan, # for Haihan Zhai
 
 3/1/2019
   $ # Logically Pacman movement
+
+3/3/2019
+  $ # Loading the background for labyrinth.
