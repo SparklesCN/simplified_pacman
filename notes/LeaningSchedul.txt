@@ -32,30 +32,30 @@ $ Lession 07
 	加载材质
 	-> Texture Loading and Rendering
 
-Lession 10 
+$ Lession 10 
 	剔除图片中的背景色
 	-> color keying
 	-> delete the background color from metrial
 
-Lession 14 
+$ Lession 14 
 	用多张图片实现动画效果
 	-> use multiple image to create dynamic image
 
-Lession 18
+$ Lession 18
 	进阶的键盘输入事件处理
 	-> extend Keyboard input events handle
 
-Lession 26
+$ Lession 26
 	让物体可以根据键盘输入移动
 	-> Motion
 	-> Make the Object moveble as keyboard inputs
 
-Lession 27
+$ Lession 27
 	侦测物体碰撞，设置碰撞事件
 	-> Set the collision event
 	-> limit the Obj movement by AirWall
 
-Lession 44 
+$ Lession 44 
 	让物体移动根据事件，而不是刷新率
 	-> base on time to motion
 
