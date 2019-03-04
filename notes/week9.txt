@@ -1,0 +1,4 @@
+$ for Xiaodong Quan, # for Haihan Zhai
+
+3/4/2019:
+  $ Testing ignore the useless background color in images.
