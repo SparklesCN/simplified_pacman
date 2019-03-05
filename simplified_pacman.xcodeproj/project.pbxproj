@@ -40,6 +40,7 @@
 		DDB02B71221349EA00CA3EBD /* READEME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = READEME.md; sourceTree = "<group>"; };
 		DDCC2119222C93C00077DBA7 /* labyrinth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = labyrinth.h; sourceTree = "<group>"; };
 		DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = labyrinth.cpp; sourceTree = "<group>"; };
+		DDCC211C222EE7FD0077DBA7 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +112,7 @@
 				DDB02B57221342FB00CA3EBD /* main.cpp */,
 				DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */,
 				DDCC2119222C93C00077DBA7 /* labyrinth.h */,
+				DDCC211C222EE7FD0077DBA7 /* constants.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
