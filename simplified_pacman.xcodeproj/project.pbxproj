@@ -13,6 +13,7 @@
 		C1164F3F2214BB2D00648E06 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB02B612213433200CA3EBD /* SDL2_ttf.framework */; };
 		DDB02B58221342FB00CA3EBD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB02B57221342FB00CA3EBD /* main.cpp */; };
 		DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */; };
+		DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211E22302EEB0077DBA7 /* rail.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,9 @@
 		DDCC2119222C93C00077DBA7 /* labyrinth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = labyrinth.h; sourceTree = "<group>"; };
 		DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = labyrinth.cpp; sourceTree = "<group>"; };
 		DDCC211C222EE7FD0077DBA7 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		DDCC211D22302EDD0077DBA7 /* rail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rail.h; sourceTree = "<group>"; };
+		DDCC211E22302EEB0077DBA7 /* rail.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rail.cpp; sourceTree = "<group>"; };
+		DDCC21202230306F0077DBA7 /* CONSTS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,9 @@
 				DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */,
 				DDCC2119222C93C00077DBA7 /* labyrinth.h */,
 				DDCC211C222EE7FD0077DBA7 /* constants.h */,
+				DDCC211D22302EDD0077DBA7 /* rail.h */,
+				DDCC211E22302EEB0077DBA7 /* rail.cpp */,
+				DDCC21202230306F0077DBA7 /* CONSTS.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -199,6 +206,7 @@
 			files = (
 				DDB02B58221342FB00CA3EBD /* main.cpp in Sources */,
 				DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */,
+				DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
