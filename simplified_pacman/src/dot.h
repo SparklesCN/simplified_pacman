@@ -1,9 +1,10 @@
 #ifndef DOT_H
 #define DOT_H
-
-#include <SDL2/SDL.h>
 #include "constants.h"
+#include "loadTexture.h"
+#include <SDL2/SDL.h>
 
+//The dot that will move around on the screen
 class Dot
 {
 public:
@@ -24,13 +25,19 @@ public:
     void move();
     
     //Shows the dot on the screen
-    void render();
+    void render(SDL_Renderer* gRenderer);
     
-    static LTexture gDotTexture;
+    LTexture gDotTexture;
+    
+    
+    
 private:
     //The X and Y offsets of the dot
     int mPosX, mPosY;
+    
     //The velocity of the dot
     int mVelX, mVelY;
+   
+    
 };
 #endif

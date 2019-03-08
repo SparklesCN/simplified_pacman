@@ -6,12 +6,8 @@
 #include <SDL2_image/SDL_image.h>
 #include <stdio.h>
 #include <string>
-
+#include "dot.h"
 #include "loadTexture.h"
-
-//Screen dimension constants
-const int SCREEN_WIDTH = 640;
-const int SCREEN_HEIGHT = 480;
 
 //Starts up SDL and creates window
 bool init();
@@ -28,12 +24,8 @@ SDL_Window* gWindow = NULL;
 //The window renderer
 SDL_Renderer* gRenderer = NULL;
 
-//Scene textures
-LTexture gFooTexture;
 LTexture gBackgroundTexture;
-
-
-
+Dot dot;
 
 bool init()
 {
@@ -55,7 +47,7 @@ bool init()
         }
         
         //Create window
-        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, Constants::SCREEN_WIDTH, Constants::SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
         if( gWindow == NULL )
         {
             printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -63,8 +55,8 @@ bool init()
         }
         else
         {
-            //Create renderer for window
-            gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED );
+            //Create vsynced renderer for window
+            gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
             if( gRenderer == NULL )
             {
                 printf( "Renderer could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -94,8 +86,8 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
     
-    //Load Foo' texture
-    if( !gFooTexture.loadFromFile( "data/images/pacman_right_1.png" , gRenderer, "WHITE") )
+    //Load dot texture
+    if( !dot.gDotTexture.loadFromFile( "data/images/pacman_right_1.png" , gRenderer, "WHITE") )
     {
         printf( "Failed to load Foo' texture image!\n" );
         success = false;
@@ -108,16 +100,13 @@ bool loadMedia()
         success = false;
     }
     
-    
-    
     return success;
 }
 
 void close()
 {
     //Free loaded images
-    gFooTexture.free();
-    gBackgroundTexture.free();
+    dot.gDotTexture.free();
     
     //Destroy window
     SDL_DestroyRenderer( gRenderer );
@@ -152,6 +141,9 @@ int main( int argc, char* args[] )
             //Event handler
             SDL_Event e;
             
+            //The dot that will be moving around on the screen
+//            Dot dot;
+            
             //While application is running
             while( !quit )
             {
@@ -163,17 +155,22 @@ int main( int argc, char* args[] )
                     {
                         quit = true;
                     }
+                    
+                    //Handle input for the dot
+                    dot.handleEvent( e );
                 }
+                
+                //Move the dot
+                dot.move();
                 
                 //Clear screen
                 SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
                 SDL_RenderClear( gRenderer );
                 
-                //Render background texture to screen
-                gBackgroundTexture.render( 0, 0, gRenderer );
+                //Render objects
+                gBackgroundTexture.render(0, 0, gRenderer);
+                dot.render(gRenderer);
                 
-                //Render Foo' to the screen
-                gFooTexture.render( 309, 339, gRenderer );
                 
                 //Update screen
                 SDL_RenderPresent( gRenderer );
