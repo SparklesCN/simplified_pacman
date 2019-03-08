@@ -47,4 +47,5 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_system.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
-  /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h
+  /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/constants.h

@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include "constants.h"
+
+//Texture wrapper class
 class LTexture
 {
 public:
@@ -25,28 +28,30 @@ public:
     //Deallocates texture
     void free();
     
-    //Set color modulation
-    void setColor( Uint8 red, Uint8 green, Uint8 blue );
-    
-    //Set blending
-    void setBlendMode( SDL_BlendMode blending );
-    
-    //Set alpha modulation
-    void setAlpha( Uint8 alpha );
-    
     //Renders texture at given point
-    void render( int x, int y, SDL_Renderer* gRenderer = NULL, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE );
+    void render( int x, int y, SDL_Renderer* gRenderer, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE );
     
     //Gets image dimensions
     int getWidth();
     int getHeight();
     
+    //Pixel manipulators
+    bool lockTexture();
+    bool unlockTexture();
+    void* getPixels();
+    void copyPixels( void* pixels );
+    int getPitch();
+    Uint32 getPixel32( unsigned int x, unsigned int y );
+    
 private:
     //The actual hardware texture
     SDL_Texture* mTexture;
+    void* mPixels;
+    int mPitch;
     
     //Image dimensions
     int mWidth;
     int mHeight;
 };
+
 #endif

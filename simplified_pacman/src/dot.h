@@ -13,7 +13,7 @@ public:
     static const int DOT_HEIGHT = 20;
     
     //Maximum axis velocity of the dot
-    static const int DOT_VEL = 1;
+    static const int DOT_VEL = 114;
     
     //Initializes the variables
     Dot();
@@ -22,22 +22,19 @@ public:
     void handleEvent( SDL_Event& e );
     
     //Moves the dot
-    void move();
+    void move( float timeStep );
     
     //Shows the dot on the screen
     void render(SDL_Renderer* gRenderer);
     
-    LTexture gDotTexture;
-    
-    
-    
+    //Scene textures
+    LTexture mTexture;
+
 private:
-    //The X and Y offsets of the dot
-    int mPosX, mPosY;
-    
-    //The velocity of the dot
-    int mVelX, mVelY;
-   
-    
+    std::string currentPic;
+    float mPosX, mPosY;
+    float mVelX, mVelY;
+    std::string nextPic();
+    int nextPicDelay;
 };
 #endif

@@ -1,13 +1,13 @@
 #include "loadTexture.h"
 
-
-
 LTexture::LTexture()
 {
     //Initialize
     mTexture = NULL;
     mWidth = 0;
     mHeight = 0;
+    mPixels = NULL;
+    mPitch = 0;
 }
 
 LTexture::~LTexture()
@@ -16,7 +16,7 @@ LTexture::~LTexture()
     free();
 }
 
-bool LTexture::loadFromFile( std::string path,  SDL_Renderer* gRenderer, std::string color)
+bool LTexture::loadFromFile( std::string path, SDL_Renderer* gRenderer, std::string color )
 {
     //Get rid of preexisting texture
     free();
@@ -32,28 +32,66 @@ bool LTexture::loadFromFile( std::string path,  SDL_Renderer* gRenderer, std::st
     }
     else
     {
-        //Color key image
-        if (color == "WHITE") {
-            SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0xFF, 0xFF, 0xFF ) );
-        }
-        else if(color == "CYAN") {
-            SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0xFF, 0xFF ) );
-        }
-        else if (color == "BLACK") {
-            SDL_SetColorKey( loadedSurface, SDL_TRUE, SDL_MapRGB( loadedSurface->format, 0, 0, 0 ) );
-        }
-        
-        //Create texture from surface pixels
-        newTexture = SDL_CreateTextureFromSurface( gRenderer, loadedSurface );
-        if( newTexture == NULL )
+        //Convert surface to display format
+        SDL_Surface* formattedSurface = SDL_ConvertSurfaceFormat( loadedSurface, SDL_PIXELFORMAT_RGBA8888, NULL );
+        if( formattedSurface == NULL )
         {
-            printf( "Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError() );
+            printf( "Unable to convert loaded surface to display format! %s\n", SDL_GetError() );
         }
         else
         {
-            //Get image dimensions
-            mWidth = loadedSurface->w;
-            mHeight = loadedSurface->h;
+            //Create blank streamable texture
+            newTexture = SDL_CreateTexture( gRenderer, SDL_PIXELFORMAT_RGBA8888, SDL_TEXTUREACCESS_STREAMING, formattedSurface->w, formattedSurface->h );
+            if( newTexture == NULL )
+            {
+                printf( "Unable to create blank texture! SDL Error: %s\n", SDL_GetError() );
+            }
+            else
+            {
+                //Enable blending on texture
+                SDL_SetTextureBlendMode( newTexture, SDL_BLENDMODE_BLEND );
+                
+                //Lock texture for manipulation
+                SDL_LockTexture( newTexture, &formattedSurface->clip_rect, &mPixels, &mPitch );
+                
+                //Copy loaded/formatted surface pixels
+                memcpy( mPixels, formattedSurface->pixels, formattedSurface->pitch * formattedSurface->h );
+                
+                //Get image dimensions
+                mWidth = formattedSurface->w;
+                mHeight = formattedSurface->h;
+                
+                //Get pixel data in editable format
+                Uint32* pixels = (Uint32*)mPixels;
+                int pixelCount = ( mPitch / 4 ) * mHeight;
+                
+                //Map colors
+                Uint32 colorKey = SDL_MapRGB( formattedSurface->format, 0, 0xFF, 0xFF );
+                
+                if (color == "WHITE") {
+                    colorKey = SDL_MapRGB( formattedSurface->format, 0xFF, 0xFF, 0xFF );
+                }
+                else if (color == "BLACK") {
+                    colorKey = SDL_MapRGB( formattedSurface->format, 0, 0, 0 );
+                }
+                Uint32 transparent = SDL_MapRGBA( formattedSurface->format, 0x00, 0xFF, 0xFF, 0x00 );
+                
+                //Color key pixels
+                for( int i = 0; i < pixelCount; ++i )
+                {
+                    if( pixels[ i ] == colorKey )
+                    {
+                        pixels[ i ] = transparent;
+                    }
+                }
+                
+                //Unlock texture to update
+                SDL_UnlockTexture( newTexture );
+                mPixels = NULL;
+            }
+            
+            //Get rid of old formatted surface
+            SDL_FreeSurface( formattedSurface );
         }
         
         //Get rid of old loaded surface
@@ -111,26 +149,11 @@ void LTexture::free()
         mTexture = NULL;
         mWidth = 0;
         mHeight = 0;
+        mPixels = NULL;
+        mPitch = 0;
     }
 }
 
-void LTexture::setColor( Uint8 red, Uint8 green, Uint8 blue )
-{
-    //Modulate texture rgb
-    SDL_SetTextureColorMod( mTexture, red, green, blue );
-}
-
-void LTexture::setBlendMode( SDL_BlendMode blending )
-{
-    //Set blending function
-    SDL_SetTextureBlendMode( mTexture, blending );
-}
-
-void LTexture::setAlpha( Uint8 alpha )
-{
-    //Modulate texture alpha
-    SDL_SetTextureAlphaMod( mTexture, alpha );
-}
 
 void LTexture::render( int x, int y, SDL_Renderer* gRenderer, SDL_Rect* clip, double angle, SDL_Point* center, SDL_RendererFlip flip )
 {
@@ -156,4 +179,77 @@ int LTexture::getWidth()
 int LTexture::getHeight()
 {
     return mHeight;
+}
+
+bool LTexture::lockTexture()
+{
+    bool success = true;
+    
+    //Texture is already locked
+    if( mPixels != NULL )
+    {
+        printf( "Texture is already locked!\n" );
+        success = false;
+    }
+    //Lock texture
+    else
+    {
+        if( SDL_LockTexture( mTexture, NULL, &mPixels, &mPitch ) != 0 )
+        {
+            printf( "Unable to lock texture! %s\n", SDL_GetError() );
+            success = false;
+        }
+    }
+    
+    return success;
+}
+
+bool LTexture::unlockTexture()
+{
+    bool success = true;
+    
+    //Texture is not locked
+    if( mPixels == NULL )
+    {
+        printf( "Texture is not locked!\n" );
+        success = false;
+    }
+    //Unlock texture
+    else
+    {
+        SDL_UnlockTexture( mTexture );
+        mPixels = NULL;
+        mPitch = 0;
+    }
+    
+    return success;
+}
+
+void* LTexture::getPixels()
+{
+    return mPixels;
+}
+
+void LTexture::copyPixels( void* pixels )
+{
+    //Texture is locked
+    if( mPixels != NULL )
+    {
+        //Copy to locked pixels
+        memcpy( mPixels, pixels, mPitch * mHeight );
+    }
+}
+
+int LTexture::getPitch()
+{
+    return mPitch;
+}
+
+Uint32 LTexture::getPixel32( unsigned int x, unsigned int y )
+{
+    //Convert the pixels to 32 bit
+    Uint32 *pixels = (Uint32*)mPixels;
+    
+    //Get the pixel requested
+    return pixels[ ( y * ( mPitch / 4 ) ) + x ];
 }

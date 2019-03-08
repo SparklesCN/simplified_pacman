@@ -1,6 +1,6 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
-
+#include <SDL2/SDL.h>
 class Constants
 {
 public:

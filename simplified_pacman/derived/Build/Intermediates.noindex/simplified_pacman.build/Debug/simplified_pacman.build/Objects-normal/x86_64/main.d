@@ -49,4 +49,6 @@ dependencies: \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/dot.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/constants.h \
-  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/loadTexture.h
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/loadTexture.h \
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/gameTimer.h \
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/labyrinth.h

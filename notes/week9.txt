@@ -13,3 +13,6 @@ $ for Xiaodong Quan, # for Haihan Zhai
   $ Optimize Pacman Movement
   $ Testing Moving Rail
 
+3/8/2019:
+  $ Make PacMan's Animation Works;
+  $ Working on Rail;
