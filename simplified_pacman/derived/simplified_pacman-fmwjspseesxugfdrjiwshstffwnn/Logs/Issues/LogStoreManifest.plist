@@ -6,7 +6,7 @@
 	<integer>9</integer>
 	<key>logs</key>
 	<dict>
-		<key>2E31BE33-CAE2-4C37-AB59-D8EF98C0930D</key>
+		<key>E9434D54-C763-4A06-8FCE-F27C86432774</key>
 		<dict>
 			<key>className</key>
 			<string>IDEActivityLogSection</string>
@@ -15,19 +15,19 @@
 			<key>domainType</key>
 			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
 			<key>fileName</key>
-			<string>2E31BE33-CAE2-4C37-AB59-D8EF98C0930D.xcactivitylog</string>
+			<string>E9434D54-C763-4A06-8FCE-F27C86432774.xcactivitylog</string>
 			<key>highLevelStatus</key>
 			<string>W</string>
 			<key>signature</key>
 			<string>simplified_pacman-fmwjspseesxugfdrjiwshstffwnn</string>
 			<key>timeStartedRecording</key>
-			<real>573586995.49423599</real>
+			<real>573688285.07893002</real>
 			<key>timeStoppedRecording</key>
-			<real>573586996.00192595</real>
+			<real>573688285.59127295</real>
 			<key>title</key>
 			<string>Build target simplified_pacman</string>
 			<key>uniqueIdentifier</key>
-			<string>2E31BE33-CAE2-4C37-AB59-D8EF98C0930D</string>
+			<string>E9434D54-C763-4A06-8FCE-F27C86432774</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
