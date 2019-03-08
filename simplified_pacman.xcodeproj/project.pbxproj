@@ -14,6 +14,8 @@
 		DDB02B58221342FB00CA3EBD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB02B57221342FB00CA3EBD /* main.cpp */; };
 		DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */; };
 		DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211E22302EEB0077DBA7 /* rail.cpp */; };
+		DDCC2136223196240077DBA7 /* loadTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2135223196240077DBA7 /* loadTexture.cpp */; };
+		DDCC213C2231F0060077DBA7 /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC213B2231F0060077DBA7 /* dot.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,7 +46,10 @@
 		DDCC211C222EE7FD0077DBA7 /* constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
 		DDCC211D22302EDD0077DBA7 /* rail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rail.h; sourceTree = "<group>"; };
 		DDCC211E22302EEB0077DBA7 /* rail.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rail.cpp; sourceTree = "<group>"; };
-		DDCC21202230306F0077DBA7 /* CONSTS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
+		DDCC2134223196160077DBA7 /* loadTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loadTexture.h; sourceTree = "<group>"; };
+		DDCC2135223196240077DBA7 /* loadTexture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = loadTexture.cpp; sourceTree = "<group>"; };
+		DDCC213A2231EFFC0077DBA7 /* dot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dot.h; sourceTree = "<group>"; };
+		DDCC213B2231F0060077DBA7 /* dot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dot.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,13 +118,16 @@
 		DDB02B682213493700CA3EBD /* src */ = {
 			isa = PBXGroup;
 			children = (
-				DDB02B57221342FB00CA3EBD /* main.cpp */,
 				DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */,
 				DDCC2119222C93C00077DBA7 /* labyrinth.h */,
 				DDCC211C222EE7FD0077DBA7 /* constants.h */,
 				DDCC211D22302EDD0077DBA7 /* rail.h */,
 				DDCC211E22302EEB0077DBA7 /* rail.cpp */,
-				DDCC21202230306F0077DBA7 /* CONSTS.h */,
+				DDB02B57221342FB00CA3EBD /* main.cpp */,
+				DDCC2134223196160077DBA7 /* loadTexture.h */,
+				DDCC2135223196240077DBA7 /* loadTexture.cpp */,
+				DDCC213A2231EFFC0077DBA7 /* dot.h */,
+				DDCC213B2231F0060077DBA7 /* dot.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -205,6 +213,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDB02B58221342FB00CA3EBD /* main.cpp in Sources */,
+				DDCC2136223196240077DBA7 /* loadTexture.cpp in Sources */,
+				DDCC213C2231F0060077DBA7 /* dot.cpp in Sources */,
 				DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */,
 				DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */,
 			);
