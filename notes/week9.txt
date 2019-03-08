@@ -5,3 +5,11 @@ $ for Xiaodong Quan, # for Haihan Zhai
 
 3/5/2019:
   $ Making Animation works
+
+3/6/2019;
+  $# Seperate texture from main function;
+
+3/7/2019:
+  $ Optimize Pacman Movement
+  $ Testing Moving Rail
+
