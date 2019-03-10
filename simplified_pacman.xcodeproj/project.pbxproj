@@ -12,11 +12,13 @@
 		C1164F3E2214BB1E00648E06 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB02B632213433A00CA3EBD /* SDL2_mixer.framework */; };
 		C1164F3F2214BB2D00648E06 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB02B612213433200CA3EBD /* SDL2_ttf.framework */; };
 		DD04DA922232E7AC005FEB7F /* gameTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA912232E7AC005FEB7F /* gameTimer.cpp */; };
+		DD04DA9522330428005FEB7F /* ghost.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA9422330428005FEB7F /* ghost.cpp */; };
+		DD04DA9722359A03005FEB7F /* constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA9622359A03005FEB7F /* constants.cpp */; };
 		DDB02B58221342FB00CA3EBD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB02B57221342FB00CA3EBD /* main.cpp */; };
 		DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */; };
 		DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211E22302EEB0077DBA7 /* rail.cpp */; };
 		DDCC2136223196240077DBA7 /* loadTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC2135223196240077DBA7 /* loadTexture.cpp */; };
-		DDCC213C2231F0060077DBA7 /* dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC213B2231F0060077DBA7 /* dot.cpp */; };
+		DDCC213C2231F0060077DBA7 /* pacman.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC213B2231F0060077DBA7 /* pacman.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -34,6 +36,9 @@
 /* Begin PBXFileReference section */
 		DD04DA902232E79E005FEB7F /* gameTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = gameTimer.h; sourceTree = "<group>"; };
 		DD04DA912232E7AC005FEB7F /* gameTimer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = gameTimer.cpp; sourceTree = "<group>"; };
+		DD04DA932233041D005FEB7F /* ghost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ghost.h; sourceTree = "<group>"; };
+		DD04DA9422330428005FEB7F /* ghost.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ghost.cpp; sourceTree = "<group>"; };
+		DD04DA9622359A03005FEB7F /* constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = constants.cpp; sourceTree = "<group>"; };
 		DDB02B54221342FB00CA3EBD /* simplified_pacman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simplified_pacman; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB02B57221342FB00CA3EBD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DDB02B5F2213431F00CA3EBD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -51,8 +56,8 @@
 		DDCC211E22302EEB0077DBA7 /* rail.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rail.cpp; sourceTree = "<group>"; };
 		DDCC2134223196160077DBA7 /* loadTexture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = loadTexture.h; sourceTree = "<group>"; };
 		DDCC2135223196240077DBA7 /* loadTexture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = loadTexture.cpp; sourceTree = "<group>"; };
-		DDCC213A2231EFFC0077DBA7 /* dot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = dot.h; sourceTree = "<group>"; };
-		DDCC213B2231F0060077DBA7 /* dot.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = dot.cpp; sourceTree = "<group>"; };
+		DDCC213A2231EFFC0077DBA7 /* pacman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pacman.h; sourceTree = "<group>"; };
+		DDCC213B2231F0060077DBA7 /* pacman.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pacman.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,15 +129,18 @@
 				DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */,
 				DDCC2119222C93C00077DBA7 /* labyrinth.h */,
 				DDCC211C222EE7FD0077DBA7 /* constants.h */,
+				DD04DA9622359A03005FEB7F /* constants.cpp */,
 				DDCC211D22302EDD0077DBA7 /* rail.h */,
 				DDCC211E22302EEB0077DBA7 /* rail.cpp */,
 				DDB02B57221342FB00CA3EBD /* main.cpp */,
 				DDCC2134223196160077DBA7 /* loadTexture.h */,
 				DDCC2135223196240077DBA7 /* loadTexture.cpp */,
-				DDCC213A2231EFFC0077DBA7 /* dot.h */,
-				DDCC213B2231F0060077DBA7 /* dot.cpp */,
+				DDCC213A2231EFFC0077DBA7 /* pacman.h */,
+				DDCC213B2231F0060077DBA7 /* pacman.cpp */,
 				DD04DA902232E79E005FEB7F /* gameTimer.h */,
 				DD04DA912232E7AC005FEB7F /* gameTimer.cpp */,
+				DD04DA932233041D005FEB7F /* ghost.h */,
+				DD04DA9422330428005FEB7F /* ghost.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -219,9 +227,11 @@
 			files = (
 				DDB02B58221342FB00CA3EBD /* main.cpp in Sources */,
 				DDCC2136223196240077DBA7 /* loadTexture.cpp in Sources */,
-				DDCC213C2231F0060077DBA7 /* dot.cpp in Sources */,
+				DDCC213C2231F0060077DBA7 /* pacman.cpp in Sources */,
+				DD04DA9722359A03005FEB7F /* constants.cpp in Sources */,
 				DD04DA922232E7AC005FEB7F /* gameTimer.cpp in Sources */,
 				DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */,
+				DD04DA9522330428005FEB7F /* ghost.cpp in Sources */,
 				DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

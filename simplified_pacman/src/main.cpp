@@ -7,16 +7,24 @@
 #include <stdio.h>
 #include <string>
 //#include "constants.h"
-#include "dot.h"
+#include "pacman.h"
+#include "ghost.h"
 #include "gameTimer.h"
 #include "labyrinth.h"
+#include "rail.h"
+
 
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
 
 
-Dot dot;
+Pacman pacman;
+Ghost pinky("pinky", 138, 37);
+Ghost blinky("blinky", 480, 37);
+Ghost clyde("clyde", 290, 215);
+Ghost inky("inky", 330, 215);
+
 Labyrinth labyrinth;
 
 
@@ -56,7 +64,7 @@ bool init()
         }
         
         //Create window
-        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        gWindow = SDL_CreateWindow( "PacMan", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
         if( gWindow == NULL )
         {
             printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -95,10 +103,10 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
     
-    //Load dot texture
-    if( !dot.mTexture.loadFromFile( "data/images/pacman_right_1.png", gRenderer, "WHITE" ) )
+    //Load pacman texture
+    if( !pacman.mTexture.loadFromFile( "data/images/pacman_right_1.png", gRenderer, "WHITE" ) )
     {
-        printf( "Failed to load dot texture!\n" );
+        printf( "Failed to load pacman texture!\n" );
         success = false;
     }
     
@@ -115,7 +123,7 @@ bool loadMedia()
 void close()
 {
     //Free loaded images
-    dot.mTexture.free();
+    pacman.mTexture.free();
     
     //Destroy window
     SDL_DestroyRenderer( gRenderer );
@@ -167,15 +175,22 @@ int main( int argc, char* args[] )
                         quit = true;
                     }
                     
-                    //Handle input for the dot
-                    dot.handleEvent( e );
+                    //Handle input for the pacman
+                    pacman.handleEvent( e );
+//                    pinky.handleEvent( e );
+//                    blinky.handleEvent( e );
+//                    inky.handleEvent( e );
+//                    clyde.handleEvent( e );
                 }
                 
                 //Calculate time step
                 float timeStep = stepTimer.getTicks() / 1000.f;
                 //Move for time step
-                dot.move( timeStep );
-                
+                pacman.move( timeStep );
+//                pinky.move( timeStep );
+//                blinky.move(timeStep);
+//                inky.move(timeStep);
+//                clyde.move(timeStep);
                 //Restart step timer
                 stepTimer.start();
                 
@@ -184,8 +199,14 @@ int main( int argc, char* args[] )
                 SDL_RenderClear( gRenderer );
                 
                 labyrinth.render(gRenderer);
-                //Render dot
-                dot.render(gRenderer);
+                //Render pacman
+                
+                pinky.render(gRenderer);
+                clyde.render(gRenderer);
+                inky.render(gRenderer);
+                blinky.render(gRenderer);
+                
+                pacman.render(gRenderer);
                 
                 
                 //Update screen

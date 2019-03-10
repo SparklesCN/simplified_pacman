@@ -48,5 +48,6 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_system.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_timer.h \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/rail.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/loadTexture.h \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h
