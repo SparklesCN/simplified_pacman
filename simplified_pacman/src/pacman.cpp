@@ -16,6 +16,8 @@ Pacman::Pacman()
     currentPic = "data/images/pacman_right_1.png";
     nextPicDelay = 0;
     
+    furDirection = "NULL";
+    
     curRail = constants.horiRails[36];
 }
 
@@ -23,10 +25,10 @@ std::string Pacman::nextPic()
 {
     if (nextPicDelay++ == 50) {
         std::string nextPicture;
-        if (mVelX == 0 && mVelY == 0) {
-            nextPicture = currentPic;
-        }
-        else if (currentPic == "data/images/pacman_right_1.png") {
+//        if (mVelX == 0 && mVelY == 0) {
+//            nextPicture = currentPic;
+//        }
+        if (currentPic == "data/images/pacman_right_1.png") {
             nextPicture = "data/images/pacman_right_2.png";
         }
         
@@ -71,56 +73,50 @@ void Pacman::handleEvent( SDL_Event& e )
         switch( e.key.keysym.sym )
         {
             case SDLK_UP:
-                currentPic = "data/images/pacman_up_1.png";
-//                if (curDirection == "UP") {
-//                    furDirection = "KEEP";
-//                }
-//                else {
-//                    furDirection = "UP";
-//                }
-                curDirection = "UP";
-                mVelY = 0;
-                mVelX = 0;
-                mVelY = -144;
+                
+                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
+                    currentPic = "data/images/pacman_up_1.png";
+                    curDirection = "UP";
+                    mVelY = 0;
+                    mVelX = 0;
+                    mVelY = -144;
+                }
+                
                 break;
             case SDLK_DOWN:
-                currentPic = "data/images/pacman_down_1.png";
-//                if (curDirection == "DOWN") {
-//                    furDirection = "KEEP";
-//                }
-//                else {
-//                    furDirection = "DOWN";
-//                }
-                curDirection = "DOWN";
-                mVelY = 0;
-                mVelX = 0;
-                mVelY = 144;
+                
+                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
+                    currentPic = "data/images/pacman_down_1.png";
+                    curDirection = "DOWN";
+                    mVelY = 0;
+                    mVelX = 0;
+                    mVelY = 144;
+                }
+
+                
                 break;
             case SDLK_LEFT:
-                currentPic = "data/images/pacman_left_1.png";
-//                if (curDirection == "LEFT") {
-//                    furDirection = "KEEP";
-//                }
-//                else {
-//                    furDirection = "LEFT";
-//                }
-                curDirection = "LEFT";
-                mVelY = 0;
-                mVelX = 0;
-                mVelX = -144;
+                
+                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
+                    currentPic = "data/images/pacman_left_1.png";
+                    curDirection = "LEFT";
+                    mVelY = 0;
+                    mVelX = 0;
+                    mVelX = -144;
+                }
+                
                 break;
             case SDLK_RIGHT:
-                currentPic = "data/images/pacman_right_1.png";
-//                if (curDirection == "RIGHT") {
-//                    furDirection = "KEEP";
-//                }
-//                else {
-//                    furDirection = "RIGHT";
-//                }
-                curDirection = "RIGHT";
-                mVelY = 0;
-                mVelX = 0;
-                mVelX = 144;
+                
+                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
+                    currentPic = "data/images/pacman_right_1.png";
+                    curDirection = "RIGHT";
+                    mVelY = 0;
+                    mVelX = 0;
+                    mVelX = 144;
+                }
+
+                
                 break;
         }
     }
@@ -135,37 +131,27 @@ bool Pacman::isOutCurRail()
     return false;
 }
 
-void Pacman::move( float timeStep )
+void Pacman::move()
 {
     
     //Move the dot left or right
     mPosX += mVelX * timeStep;
-
-
-    
     mPosY += mVelY * timeStep;
     if (isOutCurRail()) {
-//        printf("!!!!");
-//        mPosX = prePosX;
-//        mPosY = prePosY;
+
         mVelX = 0;
         mVelY = 0;
-//        if (curDirection == "RIGHT") {
-//            mPosX = curRail.x2;
-//        }
         
         if (curDirection == "LEFT") {
             mPosX = curRail.x1;
-//            std::cout << "beforex1: " << curRail.x1 << " beforey1: " << curRail.y1 << std::endl;
             isLeftRail();
-//            std::cout << "x1: " << curRail.x1 << " y1: " << curRail.y1 << std::endl;
 
         }
-        if (curDirection == "RIGHT") {
+        else if (curDirection == "RIGHT") {
             mPosX = curRail.x2;
             isRightRail();
         }
-        if (curDirection == "UP") {
+        else if (curDirection == "UP") {
             mPosY = curRail.y1;
 //            std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
             isUpRail();
@@ -174,14 +160,19 @@ void Pacman::move( float timeStep )
             mPosY = curRail.y2;
             isDownRail();
         }
-//        prePosX = mPosX;
-//        prePosY = mPosY;
     }
-    
-//    std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
+    checkPillCollison();
+    prePosX = mPosX;
+    prePosY = mVelY;
+    std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
     
 }
-
+bool Pacman::isMoving() {
+    if (prePosX != mPosX || prePosY != mVelY) {
+        return true;
+    }
+    return false;
+}
 bool Pacman::isAvaliableRail()
 {
     // for loop all rails
@@ -353,20 +344,99 @@ void Pacman::render(SDL_Renderer* gRenderer)
 std::string Pacman::getCurMoveDir()
 {
 
-//    if (prePosX < mPosX) {
-//        return "RIGHT";
-//    }
-//    else if (prePosX > mPosX) {
-//        return "LEFT";
-//    }
-//    else if (prePosY < mPosY) {
-//        return "DOWN";
-//    }
-//    else if (prePosY > mPosY) {
-//        return "UP";
-//    }
-//    else if (prePosX == mPosX && prePosY == mPosY) {
-//        return "STAND";
-//    }
+
     return "BAD RETURN";
+}
+
+void Pacman::setPills()
+{
+    // loop all horiRail
+//        for (int i=1; i <= 48; i++) {
+//            for (int x=constants.horiRails[i].x1; x<constants.horiRails[i].x2 ; x+=14) {
+//                pills.push_back(Pill(x, constants.horiRails[i].y1));
+//            }
+//        }
+//    //    std::cout << "size: " << pills.size()<<std::endl;
+//    // loop all vertRail
+
+    // row_1
+    for (int i = 138; i <= 290 + 5; i+=14) {
+        pills.push_back(Pill(i, 37));
+    }
+    for (int i = 330; i <= 480 + 5; i+=14) {
+        pills.push_back(Pill(i, 37));
+    }
+    //row_2
+    for (int i = 138; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    for (int i = 290; i <= 330; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    for (int i = 330; i <= 480 + 5; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    // row_3
+    for (int i = 138; i <= 207; i+=14) {
+        pills.push_back(Pill(i, 133));
+    }
+    for (int i = 249; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 133));
+    }
+    for (int i = 330; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 133));
+    }
+    for (int i = 412; i <= 480 + 5; i+=14) {
+        pills.push_back(Pill(i, 133));
+    }
+    
+    
+    for (int i = 37; i <= 380 + 10; i+=14) {
+        pills.push_back(Pill(207, i));
+    }
+//    for (int i = 330; i <= 412; i+=14) {
+//        pills.push_back(Pill(i, 92));
+//    }
+//    for (int i = 330; i <= 412; i+=14) {
+//        pills.push_back(Pill(i, 92));
+//    }
+//    for (int i = 330; i <= 412; i+=14) {
+//        pills.push_back(Pill(i, 92));
+//    }
+//    for (int i = 330; i <= 412; i+=14) {
+//        pills.push_back(Pill(i, 92));
+//    }
+
+
+//    pills.push_back(Pill(138, 37));
+//    pills.push_back(Pill(218, 339));
+//
+//    pills.push_back(Pill(290, 37));
+//
+//    pills.push_back(Pill(138, 421));
+//    pills.push_back(Pill(152, 421));
+//    pills.push_back(Pill(166, 421));
+//    pills.push_back(Pill(180, 421));
+//    pills.push_back(Pill(194, 421));
+//    pills.push_back(Pill(208, 421));
+//    pills.push_back(Pill(222, 421));
+//    pills.push_back(Pill(236, 421));
+//    pills.push_back(Pill(250, 421));
+//    pills.push_back(Pill(264, 421));
+    //    pills.erase(pills.begin()+1);
+}
+void Pacman::renderAllPills(SDL_Renderer* gRenderer)
+{
+    for (int i=0; i<pills.size(); i++) {
+        pills[i].render(gRenderer);
+    }
+}
+
+void Pacman::checkPillCollison()
+{
+    for (int i=0; i<pills.size(); i++) {
+        if (mPosX-10 <= pills[i].mPosX && mPosX+10 >= pills[i].mPosX && mPosY-10 <= pills[i].mPosY && mPosY+10 >= pills[i].mPosY) {
+            pills.erase(pills.begin()+i);
+        }
+    }
 }

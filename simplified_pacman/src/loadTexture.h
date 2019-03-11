@@ -1,5 +1,5 @@
-#ifndef LOADTEXTURE_H
-#define LOADTEXTURE_H
+#ifndef LTEXTURE_H
+#define LTEXTURE_H
 
 #include <string>
 #include <cstdlib>

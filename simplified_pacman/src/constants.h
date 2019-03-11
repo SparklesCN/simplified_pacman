@@ -1,9 +1,7 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 #include <SDL2/SDL.h>
-
 #include "rail.h"
-
 
 
 class Constants
@@ -17,33 +15,17 @@ public:
     Rail vRail_1, vRail_2, vRail_3, vRail_4, vRail_5, vRail_6, vRail_7, vRail_8, vRail_9, vRail_10, vRail_11, vRail_12, vRail_13, vRail_14, vRail_15, vRail_16, vRail_17, vRail_18, vRail_19, vRail_20, vRail_21, vRail_22, vRail_23, vRail_24, vRail_25, vRail_26, vRail_27, vRail_28, vRail_29, vRail_30, vRail_31, vRail_32, vRail_33, vRail_34, vRail_35, vRail_36, vRail_37, vRail_38, vRail_39, vRail_40, vRail_41;
     Rail horiRails[49];
     Rail vertRails[42];
+    
+    
 private:
     void setHoriRails();
     void setVertRails();
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #endif
+
+
+
+
+
+

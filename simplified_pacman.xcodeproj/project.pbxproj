@@ -14,6 +14,7 @@
 		DD04DA922232E7AC005FEB7F /* gameTimer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA912232E7AC005FEB7F /* gameTimer.cpp */; };
 		DD04DA9522330428005FEB7F /* ghost.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA9422330428005FEB7F /* ghost.cpp */; };
 		DD04DA9722359A03005FEB7F /* constants.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA9622359A03005FEB7F /* constants.cpp */; };
+		DD04DA9E2236FD57005FEB7F /* pill.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DD04DA9D2236FD57005FEB7F /* pill.cpp */; };
 		DDB02B58221342FB00CA3EBD /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDB02B57221342FB00CA3EBD /* main.cpp */; };
 		DDCC211B222C93DE0077DBA7 /* labyrinth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211A222C93DE0077DBA7 /* labyrinth.cpp */; };
 		DDCC211F22302EEB0077DBA7 /* rail.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DDCC211E22302EEB0077DBA7 /* rail.cpp */; };
@@ -39,6 +40,8 @@
 		DD04DA932233041D005FEB7F /* ghost.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ghost.h; sourceTree = "<group>"; };
 		DD04DA9422330428005FEB7F /* ghost.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ghost.cpp; sourceTree = "<group>"; };
 		DD04DA9622359A03005FEB7F /* constants.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = constants.cpp; sourceTree = "<group>"; };
+		DD04DA9C2236FCF3005FEB7F /* pill.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pill.h; sourceTree = "<group>"; };
+		DD04DA9D2236FD57005FEB7F /* pill.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = pill.cpp; sourceTree = "<group>"; };
 		DDB02B54221342FB00CA3EBD /* simplified_pacman */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = simplified_pacman; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB02B57221342FB00CA3EBD /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		DDB02B5F2213431F00CA3EBD /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				DD04DA912232E7AC005FEB7F /* gameTimer.cpp */,
 				DD04DA932233041D005FEB7F /* ghost.h */,
 				DD04DA9422330428005FEB7F /* ghost.cpp */,
+				DD04DA9C2236FCF3005FEB7F /* pill.h */,
+				DD04DA9D2236FD57005FEB7F /* pill.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			files = (
 				DDB02B58221342FB00CA3EBD /* main.cpp in Sources */,
 				DDCC2136223196240077DBA7 /* loadTexture.cpp in Sources */,
+				DD04DA9E2236FD57005FEB7F /* pill.cpp in Sources */,
 				DDCC213C2231F0060077DBA7 /* pacman.cpp in Sources */,
 				DD04DA9722359A03005FEB7F /* constants.cpp in Sources */,
 				DD04DA922232E7AC005FEB7F /* gameTimer.cpp in Sources */,

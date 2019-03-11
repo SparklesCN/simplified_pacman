@@ -123,4 +123,5 @@ void Ghost::render(SDL_Renderer* gRenderer)
     
     //Show the dot
     mTexture.render( (int)mPosX, (int)mPosY, gRenderer );
+    
 }

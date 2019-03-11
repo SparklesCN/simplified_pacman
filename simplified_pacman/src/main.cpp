@@ -6,19 +6,24 @@
 #include <SDL2_image/SDL_image.h>
 #include <stdio.h>
 #include <string>
+#include <vector>
 //#include "constants.h"
 #include "pacman.h"
 #include "ghost.h"
 #include "gameTimer.h"
 #include "labyrinth.h"
 #include "rail.h"
-
-
+#include "pill.h"
+#include "constants.h"
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
+Constants constants;
 
 
+std::vector<Pill> pills;
+
+Pill pill(319, 339);
 Pacman pacman;
 Ghost pinky("pinky", 138, 37);
 Ghost blinky("blinky", 480, 37);
@@ -37,6 +42,8 @@ bool loadMedia();
 
 //Frees media and shuts down SDL
 void close();
+
+
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
@@ -136,6 +143,7 @@ void close()
     SDL_Quit();
 }
 
+
 int main( int argc, char* args[] )
 {
     //Start up SDL and create window
@@ -154,7 +162,7 @@ int main( int argc, char* args[] )
         {
             //Main loop flag
             bool quit = false;
-            
+            pacman.setPills();
             //Event handler
             SDL_Event e;
             
@@ -186,7 +194,8 @@ int main( int argc, char* args[] )
                 //Calculate time step
                 float timeStep = stepTimer.getTicks() / 1000.f;
                 //Move for time step
-                pacman.move( timeStep );
+                pacman.timeStep = timeStep;
+                pacman.move();
 //                pinky.move( timeStep );
 //                blinky.move(timeStep);
 //                inky.move(timeStep);
@@ -205,7 +214,7 @@ int main( int argc, char* args[] )
                 clyde.render(gRenderer);
                 inky.render(gRenderer);
                 blinky.render(gRenderer);
-                
+                pacman.renderAllPills(gRenderer);
                 pacman.render(gRenderer);
                 
                 

@@ -51,6 +51,7 @@ dependencies: \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/constants.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/rail.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/loadTexture.h \
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/pill.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/ghost.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/gameTimer.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/labyrinth.h
