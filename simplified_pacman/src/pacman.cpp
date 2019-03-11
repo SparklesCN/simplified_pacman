@@ -5,6 +5,8 @@ Pacman::Pacman()
     //Initialize the position
     mPosX = 310;
     mPosY = 339;
+    prePosX = 310;
+    prePosY = 339;
     
     //Initialize the velocity
     mVelX = 0;
@@ -76,7 +78,7 @@ void Pacman::handleEvent( SDL_Event& e )
 //                else {
 //                    furDirection = "UP";
 //                }
-//                curDirection = "UP";
+                curDirection = "UP";
                 mVelY = 0;
                 mVelX = 0;
                 mVelY = -144;
@@ -89,7 +91,7 @@ void Pacman::handleEvent( SDL_Event& e )
 //                else {
 //                    furDirection = "DOWN";
 //                }
-//                curDirection = "DOWN";
+                curDirection = "DOWN";
                 mVelY = 0;
                 mVelX = 0;
                 mVelY = 144;
@@ -102,7 +104,7 @@ void Pacman::handleEvent( SDL_Event& e )
 //                else {
 //                    furDirection = "LEFT";
 //                }
-//                curDirection = "LEFT";
+                curDirection = "LEFT";
                 mVelY = 0;
                 mVelX = 0;
                 mVelX = -144;
@@ -115,7 +117,7 @@ void Pacman::handleEvent( SDL_Event& e )
 //                else {
 //                    furDirection = "RIGHT";
 //                }
-//                curDirection = "RIGHT";
+                curDirection = "RIGHT";
                 mVelY = 0;
                 mVelX = 0;
                 mVelX = 144;
@@ -135,67 +137,207 @@ bool Pacman::isOutCurRail()
 
 void Pacman::move( float timeStep )
 {
-    prePosX = mPosX;
-    prePosY = mPosY;
+    
     //Move the dot left or right
     mPosX += mVelX * timeStep;
 
-//    //If the dot went too far to the left or right
-//    if( mPosX < 0 )
-//    {
-//        mPosX = 0;
-//    }
-//    else if( mPosX > Constants::SCREEN_WIDTH - DOT_WIDTH )
-//    {
-//        mPosX = Constants::SCREEN_WIDTH - DOT_WIDTH;
-//    }
-    //Move the dot up or down
+
     
     mPosY += mVelY * timeStep;
-    int velXrecord = mVelX;
-    int velYrecord = mVelY;
     if (isOutCurRail()) {
-//        if (ableKeepMove()) {
-//            // don't reset speed
-//            // change current rail to next avaliable one
-//        }
-//        else {
-//            // reset the position
-//            // reset the speed
-//            mPosX = prePosX;
-//            mPosY = prePosY;
-//        }
-        mPosX = prePosX;
-        mPosY = prePosY;
+//        printf("!!!!");
+//        mPosX = prePosX;
+//        mPosY = prePosY;
         mVelX = 0;
         mVelY = 0;
-    }
-    if (isAvaliableRail()) {
+//        if (curDirection == "RIGHT") {
+//            mPosX = curRail.x2;
+//        }
         
+        if (curDirection == "LEFT") {
+            mPosX = curRail.x1;
+//            std::cout << "beforex1: " << curRail.x1 << " beforey1: " << curRail.y1 << std::endl;
+            isLeftRail();
+//            std::cout << "x1: " << curRail.x1 << " y1: " << curRail.y1 << std::endl;
+
+        }
+        if (curDirection == "RIGHT") {
+            mPosX = curRail.x2;
+            isRightRail();
+        }
+        if (curDirection == "UP") {
+            mPosY = curRail.y1;
+//            std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
+            isUpRail();
+        }
+        else if (curDirection == "DOWN") {
+            mPosY = curRail.y2;
+            isDownRail();
+        }
+//        prePosX = mPosX;
+//        prePosY = mPosY;
     }
-    //If the dot went too far up or down
-//    if( mPosY < 0 )
-//    {
-//        mPosY = 0;
-//    }
-//    else if( mPosY > Constants::SCREEN_HEIGHT - DOT_HEIGHT )
-//    {
-//        mPosY = Constants::SCREEN_HEIGHT - DOT_HEIGHT;
-//    }
-//    std::cout << "curX: " << mPosX << " preX: " << prePosX << std::endl;
-//    std::cout << "curY: " << mPosY << " preY: " << prePosY << std::endl;
     
-    curDirection = getCurMoveDir();
-//    std::cout << "curDir: " << curDirection << std::endl;
-//    std::cout << "curPos: " << mPosX << ", " << mPosY << " ; prePos: " << prePosX << ", " << prePosY << std::endl;
-//    std::cout << "CurDir: " << getCurMoveDir() << std::endl;
+//    std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
+    
 }
 
 bool Pacman::isAvaliableRail()
 {
     // for loop all rails
+    // loop all horizontal rails
+    for (int i = 1; i <= 48; i++) {
+//        std::cout << "x1: " << constants.horiRails[i].x1 << " y1: " << constants.horiRails[i].y1 << std::endl;
+        
+    }
     return true;
     
+}
+
+bool Pacman::onCurRailLeft()
+{
+    if (curRail.y1 == curRail.y2 && mPosX == curRail.x1) {
+        return true;
+    }
+    return false;
+}
+bool Pacman::onCurRailRight()
+{
+    if (curRail.y1 == curRail.y2 && mPosX == curRail.x2) {
+        return true;
+    }
+    return false;
+}
+bool Pacman::onCurRailUp()
+{
+    if (curRail.x1 == curRail.x2 && mPosY == curRail.y1) {
+        return true;
+    }
+    return false;
+}
+bool Pacman::onCurRailDown()
+{
+    if (curRail.x1 == curRail.x2 && mPosY == curRail.y2) {
+        return true;
+    }
+    return false;
+}
+// set curRail as that one if found;
+bool Pacman::isLeftRail()
+{
+    for (int i = 1; i <= 48; i++) {
+        if (onCurRailLeft()) {
+            if (constants.horiRails[i].x2 == curRail.x1 && constants.horiRails[i].y2 == curRail.y1) {
+                curRail = constants.horiRails[i];
+                return true;
+            }
+        }
+        if (onCurRailRight()) {
+//            if (constants.horiRails[i].x1 == curRail.x2 && constants.horiRails[i].y1 == curRail.y2) {
+//                curRail = constants.horiRails[i];
+//                return true;
+//            }
+            return true;
+        }
+        if (onCurRailUp()) {
+            if (constants.horiRails[i].x2 == curRail.x1 && constants.horiRails[i].y2 == curRail.y1) {
+                curRail = constants.horiRails[i];
+                return true;
+            }
+        }
+        if (onCurRailDown()) {
+            if (constants.horiRails[i].x2 == curRail.x2 && constants.horiRails[i].y2 == curRail.y2) {
+                curRail = constants.horiRails[i];
+                return true;
+            }
+        }
+    }
+    return false;
+}
+bool Pacman::isRightRail()
+{
+    for (int i = 1; i <= 48; i++) {
+        if (onCurRailLeft()) {
+//            if (constants.horiRails[i].x2 == curRail.x1 && constants.horiRails[i].y2 == curRail.y1) {
+//                curRail = constants.horiRails[i];
+//                return true;
+//            }
+            return true;
+        }
+        if (onCurRailRight()) {
+            if (constants.horiRails[i].x1 == curRail.x2 && constants.horiRails[i].y1 == curRail.y2) {
+                curRail = constants.horiRails[i];
+                return true;
+            }
+        }
+        if (onCurRailUp()) {
+            if (constants.horiRails[i].x1 == curRail.x1 && constants.horiRails[i].y1 == curRail.y1) {
+                curRail = constants.horiRails[i];
+                return true;
+            }
+        }
+        if (onCurRailDown()) {
+            if (constants.horiRails[i].x1 == curRail.x2 && constants.horiRails[i].y1 == curRail.y2) {
+                curRail = constants.horiRails[i];
+                return true;
+            }
+        }
+    }
+    return false;
+}
+bool Pacman::isUpRail()
+{
+    for (int i = 1; i <= 41; i++) {
+        if (onCurRailLeft()) {
+            if (constants.vertRails[i].x2 == curRail.x1 && constants.vertRails[i].y2 == curRail.y1) {
+                curRail = constants.vertRails[i];
+                return true;
+            }
+        }
+        if (onCurRailRight()) {
+            if (constants.vertRails[i].x2 == curRail.x2 && constants.vertRails[i].y2 == curRail.y2) {
+                curRail = constants.vertRails[i];
+                return true;
+            }
+        }
+        if (onCurRailUp()) {
+            if (constants.vertRails[i].x2 == curRail.x1 && constants.vertRails[i].y2 == curRail.y1) {
+                curRail = constants.vertRails[i];
+                return true;
+            }
+        }
+        if (onCurRailDown()) {
+            return true;
+        }
+    }
+    return false;
+}
+bool Pacman::isDownRail()
+{
+    for (int i = 1; i <= 41; i++) {
+        if (onCurRailLeft()) {
+            if (constants.vertRails[i].x1 == curRail.x1 && constants.vertRails[i].y1 == curRail.y1) {
+                curRail = constants.vertRails[i];
+                return true;
+            }
+        }
+        if (onCurRailRight()) {
+            if (constants.vertRails[i].x1 == curRail.x2 && constants.vertRails[i].y1 == curRail.y2) {
+                curRail = constants.vertRails[i];
+                return true;
+            }
+        }
+        if (onCurRailUp()) {
+            return true;
+        }
+        if (onCurRailDown()) {
+            if (constants.vertRails[i].x1 == curRail.x2 && constants.vertRails[i].y1 == curRail.y2) {
+                curRail = constants.vertRails[i];
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void Pacman::render(SDL_Renderer* gRenderer)

@@ -116,15 +116,103 @@ Constants::Constants()
     vRail_40 = Rail(480, 298, 480, 339);
     vRail_41 = Rail(480, 380, 480, 421);
     setHoriRails();
+    setVertRails();
 }
 
 void Constants::setHoriRails()
 {
-    horiRails[36] = hRail_36;
+    horiRails[1] = hRail_1;
+    horiRails[2] = hRail_2;
+    horiRails[3] = hRail_3;
+    horiRails[4] = hRail_4;
+    horiRails[5] = hRail_5;
+    horiRails[6] = hRail_6;
+    horiRails[7] = hRail_7;
+    horiRails[8] = hRail_8;
+    horiRails[9] = hRail_9;
+    horiRails[10] = hRail_10;
+    horiRails[11] = hRail_11;
+    horiRails[12] = hRail_12;
+    horiRails[13] = hRail_13;
+    horiRails[14] = hRail_14;
+    horiRails[15] = hRail_15;
+    horiRails[16] = hRail_16;
+    horiRails[17] = hRail_17;
+    horiRails[18] = hRail_18;
+    horiRails[19] = hRail_19;
+    horiRails[20] = hRail_20;
+    horiRails[21] = hRail_21;
+    horiRails[22] = hRail_22;
+    horiRails[23] = hRail_23;
+    horiRails[24] = hRail_24;
+    horiRails[25] = hRail_25;
+    horiRails[26] = hRail_26;
+    horiRails[27] = hRail_27;
+    horiRails[28] = hRail_28;
+    horiRails[29] = hRail_29;
+    horiRails[30] = hRail_30;
+    horiRails[31] = hRail_31;
+    horiRails[32] = hRail_32;
+    horiRails[33] = hRail_33;
+    horiRails[34] = hRail_34;
     horiRails[35] = hRail_35;
+    horiRails[36] = hRail_36;
+    horiRails[37] = hRail_37;
+    horiRails[38] = hRail_38;
+    horiRails[39] = hRail_39;
+    horiRails[40] = hRail_40;
+    horiRails[41] = hRail_41;
+    horiRails[42] = hRail_42;
+    horiRails[43] = hRail_43;
+    horiRails[44] = hRail_44;
+    horiRails[45] = hRail_45;
+    horiRails[46] = hRail_46;
+    horiRails[47] = hRail_47;
+    horiRails[48] = hRail_48;
+
 }
 
 void Constants::setVertRails()
 {
-    
+    vertRails[1] = vRail_1;
+    vertRails[2] = vRail_2;
+    vertRails[3] = vRail_3;
+    vertRails[4] = vRail_4;
+    vertRails[5] = vRail_5;
+    vertRails[6] = vRail_6;
+    vertRails[7] = vRail_7;
+    vertRails[8] = vRail_8;
+    vertRails[9] = vRail_9;
+    vertRails[10] = vRail_10;
+    vertRails[11] = vRail_11;
+    vertRails[12] = vRail_12;
+    vertRails[13] = vRail_13;
+    vertRails[14] = vRail_14;
+    vertRails[15] = vRail_15;
+    vertRails[16] = vRail_16;
+    vertRails[17] = vRail_17;
+    vertRails[18] = vRail_18;
+    vertRails[19] = vRail_19;
+    vertRails[20] = vRail_20;
+    vertRails[21] = vRail_21;
+    vertRails[22] = vRail_22;
+    vertRails[23] = vRail_23;
+    vertRails[24] = vRail_24;
+    vertRails[25] = vRail_25;
+    vertRails[26] = vRail_26;
+    vertRails[27] = vRail_27;
+    vertRails[28] = vRail_28;
+    vertRails[29] = vRail_29;
+    vertRails[30] = vRail_30;
+    vertRails[31] = vRail_31;
+    vertRails[32] = vRail_32;
+    vertRails[33] = vRail_33;
+    vertRails[34] = vRail_34;
+    vertRails[35] = vRail_35;
+    vertRails[36] = vRail_36;
+    vertRails[37] = vRail_37;
+    vertRails[38] = vRail_38;
+    vertRails[39] = vRail_39;
+    vertRails[40] = vRail_40;
+    vertRails[41] = vRail_41;
 }

@@ -34,6 +34,8 @@ public:
     Rail curRail;
 
 private:
+    bool isLeftRail(), isRightRail(), isUpRail(), isDownRail();
+    bool onCurRailDown(), onCurRailUp(), onCurRailLeft(), onCurRailRight();
     Constants constants;
     bool isAvaliableRail();
     bool isOutCurRail();
