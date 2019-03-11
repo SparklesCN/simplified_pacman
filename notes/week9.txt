@@ -16,3 +16,6 @@ $ for Xiaodong Quan, # for Haihan Zhai
 3/8/2019:
   $ Make PacMan's Animation Works;
   $ Working on Rail;
+
+3/10/2019:
+  # Finished the Rail map
