@@ -19,3 +19,4 @@ $ for Xiaodong Quan, # for Haihan Zhai
 
 3/10/2019:
   # Finished the Rail map
+  $ complete the movement logic, and Rails works!!! Fianally works!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
