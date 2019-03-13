@@ -227,9 +227,6 @@ int main( int argc, char* args[] )
                             blinky.currentPic = "data/images/escaping_ghost_white_1.png";
                             continue;
                         }
-                        else if (couter == 5) {
-                            
-                        }
 
                         pinky.currentPic = "data/images/escaping_ghost_1.png";
                         clyde.currentPic = "data/images/escaping_ghost_1.png";
