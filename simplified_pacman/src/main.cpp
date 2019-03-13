@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
-//#include "constants.h"
+#include <SDL2_ttf/SDL_ttf.h>
 #include "pacman.h"
 #include "ghost.h"
 #include "gameTimer.h"
@@ -25,14 +25,19 @@ std::vector<Pill> pills;
 
 Pill pill(319, 339);
 Pacman pacman;
-Ghost pinky("pinky", 138, 37);
-Ghost blinky("blinky", 480, 37);
-Ghost clyde("clyde", 290, 215);
-Ghost inky("inky", 330, 215);
+Ghost pinky("pinky", 138, 37, constants.horiRails[1]);
+Ghost blinky("blinky", 480, 37, constants.horiRails[4]);
+Ghost clyde("clyde", 290, 215, constants.horiRails[22]);
+Ghost inky("inky", 330, 215, constants.horiRails[23]);
 
 Labyrinth labyrinth;
 
 
+
+//Globally used font
+TTF_Font *gFont = NULL;
+//Rendered texture
+LTexture gTextTexture;
 
 //Starts up SDL and creates window
 bool init();
@@ -163,6 +168,7 @@ int main( int argc, char* args[] )
             //Main loop flag
             bool quit = false;
             pacman.setPills();
+            pacman.setPowerPills();
             //Event handler
             SDL_Event e;
             
@@ -170,56 +176,95 @@ int main( int argc, char* args[] )
             
             //Keeps track of time between steps
             LTimer stepTimer;
+            int huntTimeRecorder = 0;
             
             //While application is running
             while( !quit )
             {
+                while( (!pinky.collisionPacman && !blinky.collisionPacman && !inky.collisionPacman && !clyde.collisionPacman) || pacman.inHuntMode){
                 //Handle events on queue
-                while( SDL_PollEvent( &e ) != 0 )
-                {
-                    //User requests quit
-                    if( e.type == SDL_QUIT )
+                    while( SDL_PollEvent( &e ) != 0 )
                     {
-                        quit = true;
+                        //User requests quit
+                        if( e.type == SDL_QUIT )
+                        {
+                            quit = true;
+                        }
+                        
+                        //Handle input for the pacman
+                        pacman.handleEvent( e );
+                        if (e.type == SDL_KEYDOWN) {
+                            huntTimeRecorder++;
+                        }
                     }
                     
-                    //Handle input for the pacman
-                    pacman.handleEvent( e );
-//                    pinky.handleEvent( e );
-//                    blinky.handleEvent( e );
-//                    inky.handleEvent( e );
-//                    clyde.handleEvent( e );
+                    //Calculate time step
+                    float timeStep = stepTimer.getTicks() / 1000.f;
+                    //Move for time step
+                    pacman.timeStep = timeStep;
+                    pacman.move();
+                    pinky.move( timeStep, pacman );
+                    blinky.move(timeStep, pacman);
+                    inky.move(timeStep, pacman);
+                    clyde.move(timeStep, pacman);
+                    //Restart step timer
+                    stepTimer.start();
+                    
+                    //Clear screen
+                    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+                    SDL_RenderClear( gRenderer );
+                    
+                    labyrinth.render(gRenderer);
+                    //Render pacman
+                    
+                    if (pacman.inHuntMode) {
+                        int couter = huntTimeRecorder % 30;
+                        if (couter == 0) {
+                            pacman.inHuntMode = 0;
+                            pinky.currentPic = "data/images/escaping_ghost_white_1.png";
+                            clyde.currentPic = "data/images/escaping_ghost_white_1.png";
+                            inky.currentPic = "data/images/escaping_ghost_white_1.png";
+                            blinky.currentPic = "data/images/escaping_ghost_white_1.png";
+                            continue;
+                        }
+                        else if (couter == 5) {
+                            
+                        }
+
+                        pinky.currentPic = "data/images/escaping_ghost_1.png";
+                        clyde.currentPic = "data/images/escaping_ghost_1.png";
+                        inky.currentPic = "data/images/escaping_ghost_1.png";
+                        blinky.currentPic = "data/images/escaping_ghost_1.png";
+                    }
+                    pacman.renderAllPills(gRenderer);
+                    pacman.renderAllPowerPills(gRenderer);
+                    pinky.render(gRenderer);
+                    clyde.render(gRenderer);
+                    inky.render(gRenderer);
+                    blinky.render(gRenderer);
+                    pacman.render(gRenderer);
+                    
+                    
+                    //Update screen
+                    SDL_RenderPresent( gRenderer );
+                }
+                pacman.isDead = true;
+                for (int i = 0; i < 10; i++) {
+                    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+                    SDL_RenderClear( gRenderer );
+                    labyrinth.render(gRenderer);
+                    pacman.renderAllPills(gRenderer);
+                    pacman.renderAllPowerPills(gRenderer);
+                    pinky.render(gRenderer);
+                    clyde.render(gRenderer);
+                    inky.render(gRenderer);
+                    blinky.render(gRenderer);
+                    pacman.render(gRenderer);
+                    SDL_RenderPresent( gRenderer );
+                    SDL_Delay(150);
                 }
                 
-                //Calculate time step
-                float timeStep = stepTimer.getTicks() / 1000.f;
-                //Move for time step
-                pacman.timeStep = timeStep;
-                pacman.move();
-//                pinky.move( timeStep );
-//                blinky.move(timeStep);
-//                inky.move(timeStep);
-//                clyde.move(timeStep);
-                //Restart step timer
-                stepTimer.start();
-                
-                //Clear screen
-                SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-                SDL_RenderClear( gRenderer );
-                
-                labyrinth.render(gRenderer);
-                //Render pacman
-                
-                pinky.render(gRenderer);
-                clyde.render(gRenderer);
-                inky.render(gRenderer);
-                blinky.render(gRenderer);
-                pacman.renderAllPills(gRenderer);
-                pacman.render(gRenderer);
-                
-                
-                //Update screen
-                SDL_RenderPresent( gRenderer );
+                quit = true;
             }
         }
     }

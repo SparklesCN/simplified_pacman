@@ -8,14 +8,15 @@
 #include "rail.h"
 #include <vector>
 #include "pill.h"
+#include "powerPill.h"
 
 //The dot that will move around on the screen
 class Pacman
 {
 public:
     //The dimensions of the dot
-    static const int DOT_WIDTH = 20;
-    static const int DOT_HEIGHT = 20;
+    static const int DOT_WIDTH = 23;
+    static const int DOT_HEIGHT = 23;
     
     //Maximum axis velocity of the dot
     static const int DOT_VEL = 114;
@@ -33,14 +34,25 @@ public:
     void render(SDL_Renderer* gRenderer);
     //Scene textures
     LTexture mTexture;
+    LTexture pillTexture;
+    LTexture powerPillTexture;
     Rail curRail;
     std::vector<Pill> pills;
+    std::vector<PowerPill> powerPills;
     void setPills();
     void renderAllPills(SDL_Renderer* gRenderer);
     void checkPillCollison();
+    bool isMoving();
+    bool isDead;
+    void setPowerPills();
+    void renderAllPowerPills(SDL_Renderer* gRenderer);
+    void checkPowerPillCollison();
+    std::string currentPic;
+    bool inHuntMode;
 
 private:
-    bool isMoving();
+    
+    
     bool isLeftRail(), isRightRail(), isUpRail(), isDownRail();
     bool onCurRailDown(), onCurRailUp(), onCurRailLeft(), onCurRailRight();
     bool isCurRailHori(), isCurRailVert();
@@ -48,11 +60,13 @@ private:
     bool isAvaliableRail();
     bool isOutCurRail();
     std::string getCurMoveDir();
-    std::string currentPic;
-    
+    int powerPillNextPicDelay;
+    std::string powerPillCurPic;
+    std::string powerPillNextPic();
     float mVelX, mVelY;
     std::string nextPic();
     int nextPicDelay;
+    bool isMoved = false;
     std::string curDirection, furDirection;
 };
 #endif

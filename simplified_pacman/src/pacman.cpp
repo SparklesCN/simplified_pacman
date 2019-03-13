@@ -15,19 +15,58 @@ Pacman::Pacman()
     //Initialize the currentPic
     currentPic = "data/images/pacman_right_1.png";
     nextPicDelay = 0;
+    powerPillNextPicDelay = 0;
     
     furDirection = "NULL";
-    
+    powerPillCurPic = "data/images/superpille_1.png";
     curRail = constants.horiRails[36];
+    
 }
 
 std::string Pacman::nextPic()
 {
-    if (nextPicDelay++ == 50) {
-        std::string nextPicture;
+    std::string nextPicture;
+    if (isDead) {
+        if (currentPic == "data/images/pacman_die_1.png") {
+            nextPicture = "data/images/pacman_die_2.png";
+        }
+        else if (currentPic == "data/images/pacman_die_2.png") {
+            nextPicture = "data/images/pacman_die_3.png";
+        }
+        else if (currentPic == "data/images/pacman_die_3.png") {
+            nextPicture = "data/images/pacman_die_4.png";
+        }
+        else if (currentPic == "data/images/pacman_die_4.png") {
+            nextPicture = "data/images/pacman_die_5.png";
+        }
+        else if (currentPic == "data/images/pacman_die_5.png") {
+            nextPicture = "data/images/pacman_die_6.png";
+        }
+        else if (currentPic == "data/images/pacman_die_6.png") {
+            nextPicture = "data/images/pacman_die_7.png";
+        }
+        else if (currentPic == "data/images/pacman_die_7.png") {
+            nextPicture = "data/images/pacman_die_8.png";
+        }
+        else if (currentPic == "data/images/pacman_die_8.png") {
+            nextPicture = "data/images/pacman_die_9.png";
+        }
+        else if (currentPic == "data/images/pacman_die_9.png") {
+            nextPicture = "data/images/pacman_die_10.png";
+        }
+        else {
+            nextPicture = "data/images/pacman_die_1.png";
+        }
+        currentPic = nextPicture;
+        return nextPicture;
+    }
+    else if (nextPicDelay++ == 50) {
+        
 //        if (mVelX == 0 && mVelY == 0) {
 //            nextPicture = currentPic;
 //        }
+        
+        
         if (currentPic == "data/images/pacman_right_1.png") {
             nextPicture = "data/images/pacman_right_2.png";
         }
@@ -74,47 +113,47 @@ void Pacman::handleEvent( SDL_Event& e )
         {
             case SDLK_UP:
                 
-                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
-                    currentPic = "data/images/pacman_up_1.png";
-                    curDirection = "UP";
-                    mVelY = 0;
-                    mVelX = 0;
-                    mVelY = -144;
-                }
+//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
+                currentPic = "data/images/pacman_up_1.png";
+                curDirection = "UP";
+                mVelY = 0;
+                mVelX = 0;
+                mVelY = -144;
+//                }
                 
                 break;
             case SDLK_DOWN:
                 
-                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
-                    currentPic = "data/images/pacman_down_1.png";
-                    curDirection = "DOWN";
-                    mVelY = 0;
-                    mVelX = 0;
-                    mVelY = 144;
-                }
+//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
+                currentPic = "data/images/pacman_down_1.png";
+                curDirection = "DOWN";
+                mVelY = 0;
+                mVelX = 0;
+                mVelY = 144;
+//                }
 
                 
                 break;
             case SDLK_LEFT:
                 
-                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
-                    currentPic = "data/images/pacman_left_1.png";
-                    curDirection = "LEFT";
-                    mVelY = 0;
-                    mVelX = 0;
-                    mVelX = -144;
-                }
+//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
+                currentPic = "data/images/pacman_left_1.png";
+                curDirection = "LEFT";
+                mVelY = 0;
+                mVelX = 0;
+                mVelX = -144;
+//                }
                 
                 break;
             case SDLK_RIGHT:
                 
-                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
-                    currentPic = "data/images/pacman_right_1.png";
-                    curDirection = "RIGHT";
-                    mVelY = 0;
-                    mVelX = 0;
-                    mVelX = 144;
-                }
+//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
+                currentPic = "data/images/pacman_right_1.png";
+                curDirection = "RIGHT";
+                mVelY = 0;
+                mVelX = 0;
+                mVelX = 144;
+//                }
 
                 
                 break;
@@ -145,7 +184,8 @@ void Pacman::move()
         if (curDirection == "LEFT") {
             mPosX = curRail.x1;
             isLeftRail();
-
+            
+            
         }
         else if (curDirection == "RIGHT") {
             mPosX = curRail.x2;
@@ -155,6 +195,7 @@ void Pacman::move()
             mPosY = curRail.y1;
 //            std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
             isUpRail();
+
         }
         else if (curDirection == "DOWN") {
             mPosY = curRail.y2;
@@ -162,16 +203,17 @@ void Pacman::move()
         }
     }
     checkPillCollison();
+    checkPowerPillCollison();
     prePosX = mPosX;
     prePosY = mVelY;
-    std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
+    
     
 }
 bool Pacman::isMoving() {
-    if (prePosX != mPosX || prePosY != mVelY) {
-        return true;
+    if (mVelX == 0 && mVelY == 0) {
+        return false;
     }
-    return false;
+    return true;
 }
 bool Pacman::isAvaliableRail()
 {
@@ -348,32 +390,90 @@ std::string Pacman::getCurMoveDir()
     return "BAD RETURN";
 }
 
+void Pacman::setPowerPills()
+{
+    powerPills.push_back(PowerPill(138, 64));
+    powerPills.push_back(PowerPill(480, 64));
+    powerPills.push_back(PowerPill(138, 339));
+    powerPills.push_back(PowerPill(480, 339));
+    powerPills.push_back(PowerPill(1000, 339));
+}
+std::string Pacman::powerPillNextPic()
+{
+    std::string nextPicture;
+    if (powerPillNextPicDelay++ == 50)
+    {
+        if (powerPillCurPic == "data/images/superpille_1.png") {
+            nextPicture = "data/images/superpille_2.png";
+        }
+        else if (powerPillCurPic == "data/images/superpille_2.png") {
+            nextPicture = "data/images/superpille_3.png";
+        }
+        else if (powerPillCurPic == "data/images/superpille_3.png") {
+            nextPicture = "data/images/superpille_1.png";
+        }
+        powerPillCurPic = nextPicture;
+        powerPillNextPicDelay = 0;
+        return nextPicture;
+    }
+    return powerPillCurPic;
+}
+
+void Pacman::renderAllPowerPills(SDL_Renderer* gRenderer)
+{
+    powerPillTexture.loadFromFile( powerPillNextPic(), gRenderer, "BLACK" );
+    for (int i=0; i<powerPills.size(); i++) {
+        //Show the dot
+        
+        powerPillTexture.render( (int)powerPills[i].mPosX + 6, (int)powerPills[i].mPosY + 6, gRenderer );
+    }
+}
+
+void Pacman::checkPowerPillCollison()
+{
+    for (int i=0; i<pills.size(); i++) {
+        if (mPosX-10 <= powerPills[i].mPosX && mPosX+10 >= powerPills[i].mPosX && mPosY-10 <= powerPills[i].mPosY && mPosY+10 >= powerPills[i].mPosY) {
+            powerPills.erase(powerPills.begin()+i);
+            inHuntMode = true;
+        }
+    }
+}
+
 void Pacman::setPills()
 {
-    // loop all horiRail
-//        for (int i=1; i <= 48; i++) {
-//            for (int x=constants.horiRails[i].x1; x<constants.horiRails[i].x2 ; x+=14) {
-//                pills.push_back(Pill(x, constants.horiRails[i].y1));
-//            }
-//        }
-//    //    std::cout << "size: " << pills.size()<<std::endl;
-//    // loop all vertRail
-
     // row_1
-    for (int i = 138; i <= 290 + 5; i+=14) {
+    for (int i = 138; i <= 207; i+=14) {
         pills.push_back(Pill(i, 37));
     }
-    for (int i = 330; i <= 480 + 5; i+=14) {
+    for (int i = 207; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 37));
+    }
+    for (int i = 330; i <= 412; i+=14) {
+        pills.push_back(Pill(i, 37));
+    }
+    for (int i = 412; i <= 480; i+=14) {
         pills.push_back(Pill(i, 37));
     }
     //row_2
-    for (int i = 138; i <= 290; i+=14) {
+    for (int i = 138; i <= 207; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    for (int i = 207; i <= 249; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    for (int i = 249; i <= 290; i+=14) {
         pills.push_back(Pill(i, 92));
     }
     for (int i = 290; i <= 330; i+=14) {
         pills.push_back(Pill(i, 92));
     }
-    for (int i = 330; i <= 480 + 5; i+=14) {
+    for (int i = 330; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    for (int i = 371; i <= 412; i+=14) {
+        pills.push_back(Pill(i, 92));
+    }
+    for (int i = 412; i <= 480; i+=14) {
         pills.push_back(Pill(i, 92));
     }
     // row_3
@@ -386,14 +486,233 @@ void Pacman::setPills()
     for (int i = 330; i <= 371; i+=14) {
         pills.push_back(Pill(i, 133));
     }
-    for (int i = 412; i <= 480 + 5; i+=14) {
+    for (int i = 412; i <= 480; i+=14) {
         pills.push_back(Pill(i, 133));
     }
+    // row_4
+    for (int i = 249; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 174));
+    }
+    for (int i = 290; i <= 330; i+=14) {
+        pills.push_back(Pill(i, 174));
+    }
+    for (int i = 330; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 174));
+    }
+    // row_5
+    for (int i = 138; i <= 249; i+=14) {
+        pills.push_back(Pill(i, 215));
+    }
+    for (int i = 371; i <= 480+5; i+=14) {
+        pills.push_back(Pill(i, 215));
+    }
+    // row_6
+    for (int i = 249; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 257));
+    }
+    // row_7
+    for (int i = 138; i <= 207; i+=14) {
+        pills.push_back(Pill(i, 298));
+    }
+    for (int i = 207; i <= 249; i+=14) {
+        pills.push_back(Pill(i, 298));
+    }
+    for (int i = 249; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 298));
+    }
+    for (int i = 330; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 298));
+    }
+    for (int i = 371; i <= 412; i+=14) {
+        pills.push_back(Pill(i, 298));
+    }
+    for (int i = 412; i <= 480; i+=14) {
+        pills.push_back(Pill(i, 298));
+    }
+    // row_8
+    for (int i = 138; i <= 166; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    for (int i = 207; i <= 249; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    for (int i = 249; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    for (int i = 290; i <= 330; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    for (int i = 330; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    for (int i = 371; i <= 412; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    for (int i = 452; i <= 480; i+=14) {
+        pills.push_back(Pill(i, 339));
+    }
+    // row_9
+    for (int i = 138; i <= 207; i+=14) {
+        pills.push_back(Pill(i, 380));
+    }
+    for (int i = 249; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 380));
+    }
+    for (int i = 330; i <= 371; i+=14) {
+        pills.push_back(Pill(i, 380));
+    }
+    for (int i = 412; i <= 480; i+=14) {
+        pills.push_back(Pill(i, 380));
+    }
+    // row_10
+    for (int i = 138; i <= 290; i+=14) {
+        pills.push_back(Pill(i, 421));
+    }
+    for (int i = 290; i <= 330; i+=14) {
+        pills.push_back(Pill(i, 421));
+    }
+    for (int i = 330; i <= 480; i+=14) {
+        pills.push_back(Pill(i, 421));
+    }
     
+    // col_1
+    for (int i = 37; i <= 133; i+=14) {
+        pills.push_back(Pill(138, i));
+    }
+    for (int i = 298; i <= 339; i+=14) {
+        pills.push_back(Pill(138, i));
+    }
+    for (int i = 380; i <= 421; i+=14) {
+        pills.push_back(Pill(138, i));
+    }
     
-    for (int i = 37; i <= 380 + 10; i+=14) {
+    // col_2
+    for (int i = 37; i <= 92; i+=14) {
         pills.push_back(Pill(207, i));
     }
+    for (int i = 92; i <= 133; i+=14) {
+        pills.push_back(Pill(207, i));
+    }
+    for (int i = 133; i <= 215; i+=14) {
+        pills.push_back(Pill(207, i));
+    }
+    for (int i = 215; i <= 298; i+=14) {
+        pills.push_back(Pill(207, i));
+    }
+    for (int i = 298; i <= 339; i+=14) {
+        pills.push_back(Pill(207, i));
+    }
+    for (int i = 339; i <= 380+5; i+=14) {
+        pills.push_back(Pill(207, i));
+    }
+    // col_3
+    for (int i = 92; i <= 133; i+=14) {
+        pills.push_back(Pill(249, i));
+    }
+    for (int i = 174; i <= 215; i+=14) {
+        pills.push_back(Pill(249, i));
+    }
+    for (int i = 215; i <= 257; i+=14) {
+        pills.push_back(Pill(249, i));
+    }
+    for (int i = 257; i <= 298; i+=14) {
+        pills.push_back(Pill(249, i));
+    }
+    for (int i = 339; i <= 380; i+=14) {
+        pills.push_back(Pill(249, i));
+    }
+    // col_4
+    for (int i = 37; i <= 92; i+=14) {
+        pills.push_back(Pill(290, i));
+    }
+    for (int i = 133; i <= 174; i+=14) {
+        pills.push_back(Pill(290, i));
+    }
+    for (int i = 298; i <= 339; i+=14) {
+        pills.push_back(Pill(290, i));
+    }
+    for (int i = 380; i <= 421; i+=14) {
+        pills.push_back(Pill(290, i));
+    }
+    // col_5
+    for (int i = 37; i <= 92; i+=14) {
+        pills.push_back(Pill(330, i));
+    }
+    for (int i = 133; i <= 174; i+=14) {
+        pills.push_back(Pill(330, i));
+    }
+    for (int i = 298; i <= 339; i+=14) {
+        pills.push_back(Pill(330, i));
+    }
+    for (int i = 380; i <= 421; i+=14) {
+        pills.push_back(Pill(330, i));
+    }
+    // col_6
+    for (int i = 92; i <= 133+5; i+=14) {
+        pills.push_back(Pill(371, i));
+    }
+    for (int i = 174; i <= 215; i+=14) {
+        pills.push_back(Pill(371, i));
+    }
+    for (int i = 215; i <= 257; i+=14) {
+        pills.push_back(Pill(371, i));
+    }
+    for (int i = 257; i <= 298; i+=14) {
+        pills.push_back(Pill(371, i));
+    }
+    for (int i = 339; i <= 380+5; i+=14) {
+        pills.push_back(Pill(371, i));
+    }
+    // col_7
+    for (int i = 37; i <= 92; i+=14) {
+        pills.push_back(Pill(412, i));
+    }
+    for (int i = 92; i <= 133; i+=14) {
+        pills.push_back(Pill(412, i));
+    }
+    for (int i = 133; i <= 215; i+=14) {
+        pills.push_back(Pill(412, i));
+    }
+    for (int i = 215; i <= 298; i+=14) {
+        pills.push_back(Pill(412, i));
+    }
+    for (int i = 298; i <= 339; i+=14) {
+        pills.push_back(Pill(412, i));
+    }
+    for (int i = 339; i <= 380; i+=14) {
+        pills.push_back(Pill(412, i));
+    }
+    // col_8
+    for (int i = 37; i <= 92; i+=14) {
+        pills.push_back(Pill(480, i));
+    }
+    for (int i = 92; i <= 133+5; i+=14) {
+        pills.push_back(Pill(480, i));
+    }
+    for (int i = 298; i <= 339; i+=14) {
+        pills.push_back(Pill(480, i));
+    }
+    for (int i = 380; i <= 421+5; i+=14) {
+        pills.push_back(Pill(480, i));
+    }
+    
+    for (int i = 0; i <= 100; i+=14) {
+        pills.push_back(Pill(1000, 1000));
+    }
+    
+    
+//    for (int i = 37; i <= 92; i+=14) {
+//        pills.push_back(Pill(480, i));
+//    }
+//    for (int i = 92; i <= 133+5; i+=14) {
+//        pills.push_back(Pill(480, i));
+//    }
+    
+//    for (int i = 37; i <= 380 + 10; i+=14) {
+//        pills.push_back(Pill(207, i));
+//    }
+    
+    
 //    for (int i = 330; i <= 412; i+=14) {
 //        pills.push_back(Pill(i, 92));
 //    }
@@ -427,15 +746,18 @@ void Pacman::setPills()
 }
 void Pacman::renderAllPills(SDL_Renderer* gRenderer)
 {
+    pillTexture.loadFromFile( "data/images/pille.png", gRenderer, "BLACK" );
     for (int i=0; i<pills.size(); i++) {
-        pills[i].render(gRenderer);
+        //Show the dot
+        
+        pillTexture.render( (int)pills[i].mPosX + 10, (int)pills[i].mPosY + 10, gRenderer );
     }
 }
 
 void Pacman::checkPillCollison()
 {
     for (int i=0; i<pills.size(); i++) {
-        if (mPosX-10 <= pills[i].mPosX && mPosX+10 >= pills[i].mPosX && mPosY-10 <= pills[i].mPosY && mPosY+10 >= pills[i].mPosY) {
+        if (mPosX-5 <= pills[i].mPosX && mPosX+5 >= pills[i].mPosX && mPosY-5 <= pills[i].mPosY && mPosY+5 >= pills[i].mPosY) {
             pills.erase(pills.begin()+i);
         }
     }
