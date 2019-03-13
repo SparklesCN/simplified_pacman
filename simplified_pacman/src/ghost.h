@@ -6,6 +6,7 @@
 #include "rail.h"
 #include "pacman.h"
 #include <time.h>
+#include "gameTimer.h"
 
 //The dot that will move around on the screen
 class Ghost
@@ -30,7 +31,7 @@ public:
     
     //Shows the dot on the screen
     std::string currentPic;
-    void render(SDL_Renderer* gRenderer);
+    void render(SDL_Renderer* gRenderer, Pacman pacman);
     std::string curDirection;
     bool isRoundEnd;
     //Scene textures
@@ -38,7 +39,8 @@ public:
     Rail curRail;
     Constants constants;
     Pacman pacman;
-    bool isHunter;
+    int huntModeCounter = 0;
+    bool isFood, foodModeNearDone;
     
 private:
     

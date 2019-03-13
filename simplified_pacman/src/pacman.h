@@ -9,6 +9,7 @@
 #include <vector>
 #include "pill.h"
 #include "powerPill.h"
+#include "gameTimer.h"
 
 //The dot that will move around on the screen
 class Pacman
@@ -49,6 +50,9 @@ public:
     void checkPowerPillCollison();
     std::string currentPic;
     bool inHuntMode;
+    bool hunModeNearDone;
+    LTimer huntModeTimer;
+    float huntTimeCounter;
 
 private:
     

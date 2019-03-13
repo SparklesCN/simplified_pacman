@@ -39,44 +39,74 @@ std::string Ghost::nextPic()
     if (nextPicDelay++ == 100) {
         std::string nextPicture;
         
-        
-        if (currentPic == "data/images/" + ghostKinds + "_up_1.png") {
-            nextPicture = "data/images/" + ghostKinds + "_up_2.png";
-        }
-        else if (currentPic == "data/images/" + ghostKinds + "_up_2.png") {
-            nextPicture = "data/images/" + ghostKinds + "_up_1.png";
-        }
-        
-        else if (currentPic == "data/images/" + ghostKinds + "_down_1.png") {
-            nextPicture = "data/images/" + ghostKinds + "_down_2.png";
-        }
-        else if (currentPic == "data/images/" + ghostKinds + "_down_2.png") {
-            nextPicture = "data/images/" + ghostKinds + "_down_1.png";
-        }
-        
-        else if (currentPic == "data/images/" + ghostKinds + "_left_1.png") {
-            nextPicture = "data/images/" + ghostKinds + "_left_2.png";
-        }
-        else if (currentPic == "data/images/" + ghostKinds + "_left_2.png") {
-            nextPicture = "data/images/" + ghostKinds + "_left_1.png";
-        }
-        
-        else if (currentPic == "data/images/" + ghostKinds + "_right_1.png") {
-            nextPicture = "data/images/" + ghostKinds + "_right_2.png";
-        }
-        else if (currentPic == "data/images/" + ghostKinds + "_right_2.png") {
-            nextPicture = "data/images/" + ghostKinds + "_right_1.png";
-        }
-        else if (currentPic == "data/images/escaping_ghost_1.png") {
-            nextPicture = "data/images/escaping_ghost_2.png";
-        }
-        else if (currentPic == "data/images/escaping_ghost_2.png") {
-            nextPicture = "data/images/escaping_ghost_1.png";
+        if (isFood) {
+            if (foodModeNearDone) {
+                if (currentPic == "data/images/escaping_ghost_white_1.png") {
+                    nextPicture = "data/images/escaping_ghost_1.png";
+                }
+                else if (currentPic == "escaping_ghost_1.png") {
+                    nextPicture = "data/images/escaping_ghost_white_1.png";
+                }
+                else{
+                    nextPicture = "data/images/escaping_ghost_white_1.png";
+                }
+                currentPic = nextPicture;
+                nextPicDelay = 0;
+                return nextPicture;
+            }
+            else {
+                if (currentPic == "data/images/escaping_ghost_1.png") {
+                    nextPicture = "data/images/escaping_ghost_2.png";
+                }
+                else if (currentPic == "data/images/escaping_ghost_2.png") {
+                    nextPicture = "data/images/escaping_ghost_1.png";
+                }
+                else{
+                    nextPicture = "data/images/escaping_ghost_1.png";
+                }
+                currentPic = nextPicture;
+                nextPicDelay = 0;
+                return nextPicture;
+            }
         }
         
-        currentPic = nextPicture;
-        nextPicDelay = 0;
-        return nextPicture;
+        else {
+            if (currentPic == "data/images/" + ghostKinds + "_up_1.png") {
+                nextPicture = "data/images/" + ghostKinds + "_up_2.png";
+            }
+            else if (currentPic == "data/images/" + ghostKinds + "_up_2.png") {
+                nextPicture = "data/images/" + ghostKinds + "_up_1.png";
+            }
+            
+            else if (currentPic == "data/images/" + ghostKinds + "_down_1.png") {
+                nextPicture = "data/images/" + ghostKinds + "_down_2.png";
+            }
+            else if (currentPic == "data/images/" + ghostKinds + "_down_2.png") {
+                nextPicture = "data/images/" + ghostKinds + "_down_1.png";
+            }
+            
+            else if (currentPic == "data/images/" + ghostKinds + "_left_1.png") {
+                nextPicture = "data/images/" + ghostKinds + "_left_2.png";
+            }
+            else if (currentPic == "data/images/" + ghostKinds + "_left_2.png") {
+                nextPicture = "data/images/" + ghostKinds + "_left_1.png";
+            }
+            
+            else if (currentPic == "data/images/" + ghostKinds + "_right_1.png") {
+                nextPicture = "data/images/" + ghostKinds + "_right_2.png";
+            }
+            else if (currentPic == "data/images/" + ghostKinds + "_right_2.png") {
+                nextPicture = "data/images/" + ghostKinds + "_right_1.png";
+            }
+            else
+            {
+                nextPicture = "data/images/" + ghostKinds + "_up_1.png";
+            }
+            
+            currentPic = nextPicture;
+            nextPicDelay = 0;
+            return nextPicture;
+        }
     }
     return currentPic;
 }
@@ -145,35 +175,44 @@ void Ghost::move( float timeStep, Pacman pacman )
 
     if (pacman.isMoving() && randInt == 1 && (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown())) {
         // move left set
-                currentPic = "data/images/" + ghostKinds + "_left_1.png";
-                curDirection = "LEFT";
-                mVelY = 0;
-                mVelX = 0;
-                mVelX = -144;
+        if (!isFood) {
+            currentPic = "data/images/" + ghostKinds + "_left_1.png";
+        }
+        
+        curDirection = "LEFT";
+        mVelY = 0;
+        mVelX = 0;
+        mVelX = -144;
     }
     else if (pacman.isMoving() && randInt == 2 && (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown())) {
         // move right set
-                currentPic = "data/images/" + ghostKinds + "_right_1.png";
-                curDirection = "RIGHT";
-                mVelY = 0;
-                mVelX = 0;
-                mVelX = 144;
+        if (!isFood) {
+            currentPic = "data/images/" + ghostKinds + "_right_1.png";
+        }
+        curDirection = "RIGHT";
+        mVelY = 0;
+        mVelX = 0;
+        mVelX = 144;
     }
     else if (pacman.isMoving() && randInt == 3 && (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown())) {
         // move up set
-                currentPic = "data/images/" + ghostKinds + "_up_1.png";
-                curDirection = "UP";
-                mVelY = 0;
-                mVelX = 0;
-                mVelY = -144;
+        if (!isFood) {
+            currentPic = "data/images/" + ghostKinds + "_up_1.png";
+        }
+        curDirection = "UP";
+        mVelY = 0;
+        mVelX = 0;
+        mVelY = -144;
     }
     else if (pacman.isMoving() && randInt == 4 && (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown())) {
         // move down set
-                currentPic = "data/images/" + ghostKinds + "_down_1.png";
-                curDirection = "DOWN";
-                mVelY = 0;
-                mVelX = 0;
-                mVelY = 144;
+        if (!isFood) {
+            currentPic = "data/images/" + ghostKinds + "_down_1.png";
+        }
+        curDirection = "DOWN";
+        mVelY = 0;
+        mVelX = 0;
+        mVelY = 144;
     }
     
     
@@ -217,6 +256,7 @@ void Ghost::move( float timeStep, Pacman pacman )
     }
     
     collisionPacman = isCollisionPcaman(pacman);
+
     
     
 }
@@ -259,8 +299,8 @@ bool Ghost::isCollisionPcaman(Pacman pacman)
     {
         return false;
     }
-    
     //If none of the sides from A are outside B
+    
     return true;
 }
 bool Ghost::onCurRailLeft()
@@ -410,8 +450,18 @@ bool Ghost::isDownRail()
     return false;
 }
 
-void Ghost::render(SDL_Renderer* gRenderer)
+void Ghost::render(SDL_Renderer* gRenderer, Pacman pacman)
 {
+    if (pacman.inHuntMode) {
+        isFood = true;
+        if (pacman.hunModeNearDone) {
+            foodModeNearDone = true;
+        }
+    }
+    else {
+        foodModeNearDone = false;
+        isFood = false;
+    }
     //update the pic
     mTexture.loadFromFile( nextPic(), gRenderer, "BLACK" );
     

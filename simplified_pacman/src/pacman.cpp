@@ -204,6 +204,13 @@ void Pacman::move()
     }
     checkPillCollison();
     checkPowerPillCollison();
+    if (huntModeTimer.getTicks() / 1000.f >= 10) {
+        inHuntMode = false;
+        hunModeNearDone = false;
+    }
+    else if (huntModeTimer.getTicks() / 1000.f >= 7) {
+        hunModeNearDone = true;
+    }
     prePosX = mPosX;
     prePosY = mVelY;
     
@@ -220,7 +227,6 @@ bool Pacman::isAvaliableRail()
     // for loop all rails
     // loop all horizontal rails
     for (int i = 1; i <= 48; i++) {
-//        std::cout << "x1: " << constants.horiRails[i].x1 << " y1: " << constants.horiRails[i].y1 << std::endl;
         
     }
     return true;
@@ -435,6 +441,7 @@ void Pacman::checkPowerPillCollison()
         if (mPosX-10 <= powerPills[i].mPosX && mPosX+10 >= powerPills[i].mPosX && mPosY-10 <= powerPills[i].mPosY && mPosY+10 >= powerPills[i].mPosY) {
             powerPills.erase(powerPills.begin()+i);
             inHuntMode = true;
+            huntModeTimer.start();
         }
     }
 }
@@ -759,6 +766,7 @@ void Pacman::checkPillCollison()
     for (int i=0; i<pills.size(); i++) {
         if (mPosX-5 <= pills[i].mPosX && mPosX+5 >= pills[i].mPosX && mPosY-5 <= pills[i].mPosY && mPosY+5 >= pills[i].mPosY) {
             pills.erase(pills.begin()+i);
+            std::cout << pills.size() << std::endl;
         }
     }
 }

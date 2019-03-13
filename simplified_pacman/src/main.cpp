@@ -176,7 +176,6 @@ int main( int argc, char* args[] )
             
             //Keeps track of time between steps
             LTimer stepTimer;
-            int huntTimeRecorder = 0;
             
             //While application is running
             while( !quit )
@@ -193,11 +192,7 @@ int main( int argc, char* args[] )
                         
                         //Handle input for the pacman
                         pacman.handleEvent( e );
-                        if (e.type == SDL_KEYDOWN) {
-                            huntTimeRecorder++;
-                        }
                     }
-                    
                     //Calculate time step
                     float timeStep = stepTimer.getTicks() / 1000.f;
                     //Move for time step
@@ -217,28 +212,13 @@ int main( int argc, char* args[] )
                     labyrinth.render(gRenderer);
                     //Render pacman
                     
-                    if (pacman.inHuntMode) {
-                        int couter = huntTimeRecorder % 30;
-                        if (couter == 0) {
-                            pacman.inHuntMode = 0;
-                            pinky.currentPic = "data/images/escaping_ghost_white_1.png";
-                            clyde.currentPic = "data/images/escaping_ghost_white_1.png";
-                            inky.currentPic = "data/images/escaping_ghost_white_1.png";
-                            blinky.currentPic = "data/images/escaping_ghost_white_1.png";
-                            continue;
-                        }
-
-                        pinky.currentPic = "data/images/escaping_ghost_1.png";
-                        clyde.currentPic = "data/images/escaping_ghost_1.png";
-                        inky.currentPic = "data/images/escaping_ghost_1.png";
-                        blinky.currentPic = "data/images/escaping_ghost_1.png";
-                    }
+                    
                     pacman.renderAllPills(gRenderer);
                     pacman.renderAllPowerPills(gRenderer);
-                    pinky.render(gRenderer);
-                    clyde.render(gRenderer);
-                    inky.render(gRenderer);
-                    blinky.render(gRenderer);
+                    pinky.render(gRenderer, pacman);
+                    clyde.render(gRenderer, pacman);
+                    inky.render(gRenderer, pacman);
+                    blinky.render(gRenderer, pacman);
                     pacman.render(gRenderer);
                     
                     
@@ -252,10 +232,10 @@ int main( int argc, char* args[] )
                     labyrinth.render(gRenderer);
                     pacman.renderAllPills(gRenderer);
                     pacman.renderAllPowerPills(gRenderer);
-                    pinky.render(gRenderer);
-                    clyde.render(gRenderer);
-                    inky.render(gRenderer);
-                    blinky.render(gRenderer);
+                    pinky.render(gRenderer, pacman);
+                    clyde.render(gRenderer, pacman);
+                    inky.render(gRenderer, pacman);
+                    blinky.render(gRenderer,pacman);
                     pacman.render(gRenderer);
                     SDL_RenderPresent( gRenderer );
                     SDL_Delay(150);

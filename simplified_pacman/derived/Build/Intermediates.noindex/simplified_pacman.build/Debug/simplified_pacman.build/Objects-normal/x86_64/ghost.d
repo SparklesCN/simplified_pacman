@@ -53,4 +53,5 @@ dependencies: \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/pacman.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/pill.h \
-  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/powerPill.h
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/powerPill.h \
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/gameTimer.h
