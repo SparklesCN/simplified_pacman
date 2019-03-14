@@ -686,9 +686,11 @@ void Pacman::renderAllPills(SDL_Renderer* gRenderer)
 
 void Pacman::checkPillCollison()
 {
+    isEatenPill = false;
     for (int i=0; i<pills.size(); i++) {
         if (mPosX-5 <= pills[i].mPosX && mPosX+5 >= pills[i].mPosX && mPosY-5 <= pills[i].mPosY && mPosY+5 >= pills[i].mPosY) {
             pills.erase(pills.begin()+i);
+            isEatenPill = true;
         }
     }
 }

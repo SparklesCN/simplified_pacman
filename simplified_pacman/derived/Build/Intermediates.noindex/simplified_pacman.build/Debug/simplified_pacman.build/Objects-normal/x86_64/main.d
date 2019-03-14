@@ -56,4 +56,5 @@ dependencies: \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/powerPill.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/gameTimer.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/ghost.h \
-  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/labyrinth.h
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/labyrinth.h \
+  /Library/Frameworks/SDL2_mixer.framework/Headers/SDL_mixer.h

@@ -53,6 +53,7 @@ public:
     bool hunModeNearDone;
     LTimer huntModeTimer;
     float huntTimeCounter;
+    bool isEatenPill;
 
 private:
     

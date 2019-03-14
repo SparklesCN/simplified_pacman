@@ -15,6 +15,7 @@
 #include "rail.h"
 #include "pill.h"
 #include "constants.h"
+#include <SDL2_mixer/SDL_mixer.h>
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;
@@ -48,7 +49,7 @@ bool loadMedia();
 //Frees media and shuts down SDL
 void close();
 
-
+void checkMusic(Pacman pacman);
 
 //The window we'll be rendering to
 SDL_Window* gWindow = NULL;
@@ -56,12 +57,29 @@ SDL_Window* gWindow = NULL;
 //The window renderer
 SDL_Renderer* gRenderer = NULL;
 
+//The music that will be played
+Mix_Music *gMusic = NULL;
+
+//The sound effects that will be used
+Mix_Chunk *gIntro = NULL;
+Mix_Chunk *gDead = NULL;
+Mix_Chunk *gHunting = NULL;
+Mix_Chunk *gPill_1 = NULL;
+Mix_Chunk *gPill_2 = NULL;
+
 bool init()
 {
     //Initialization flag
     bool success = true;
     
     //Initialize SDL
+    
+    if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
+    {
+        printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
+        success = false;
+    }
+    
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
         printf( "SDL could not initialize! SDL Error: %s\n", SDL_GetError() );
@@ -115,6 +133,14 @@ bool loadMedia()
     //Loading success flag
     bool success = true;
     
+    //Load music
+    gMusic = Mix_LoadMUS( "data/sounds/siren_fast.wav" );
+    gDead = Mix_LoadWAV( "data/sounds/death.wav" );
+    gHunting = Mix_LoadWAV( "data/sounds/siren_fast.wav" );
+    gPill_1 = Mix_LoadWAV( "data/sounds/munch_a.wav" );
+    gPill_2 = Mix_LoadWAV( "data/sounds/munch_b.wav" );
+    gIntro = Mix_LoadWAV("data/sounds/intro.wav");
+    
     //Load pacman texture
     if( !pacman.mTexture.loadFromFile( "data/images/pacman_right_1.png", gRenderer, "WHITE" ) )
     {
@@ -129,7 +155,33 @@ bool loadMedia()
         success = false;
     }
     
+    
+    
     return success;
+}
+bool isPillMusicA = true;
+void checkMusic(Pacman pacman)
+{
+    if(pacman.inHuntMode) {
+        if( Mix_PlayingMusic() == 0 ) {
+            Mix_PlayMusic( gMusic, -1 );
+        }
+    }
+    else if (!pacman.inHuntMode) {
+        Mix_PauseMusic();
+    }
+    if (pacman.isEatenPill) {
+        if (isPillMusicA) {
+            Mix_PlayChannel( -1, gPill_1, 0 );
+            isPillMusicA = false;
+        }
+        else {
+            Mix_PlayChannel( -1, gPill_2, 0 );
+            isPillMusicA = true;
+        }
+        
+    }
+    
 }
 
 void close()
@@ -169,6 +221,8 @@ int main( int argc, char* args[] )
             bool quit = false;
             pacman.setPills();
             pacman.setPowerPills();
+            
+            Mix_PlayChannel( -1, gIntro, 0 );
             //Event handler
             SDL_Event e;
             
@@ -180,7 +234,7 @@ int main( int argc, char* args[] )
             //While application is running
             while( !quit )
             {
-                while( (!pinky.collisionPacman && !blinky.collisionPacman && !inky.collisionPacman && !clyde.collisionPacman) || pacman.inHuntMode){
+                while( (!pinky.collisionPacman && !blinky.collisionPacman && !inky.collisionPacman && !clyde.collisionPacman && !quit) || pacman.inHuntMode){
                 //Handle events on queue
                     while( SDL_PollEvent( &e ) != 0 )
                     {
@@ -197,6 +251,7 @@ int main( int argc, char* args[] )
                     float timeStep = stepTimer.getTicks() / 1000.f;
                     //Move for time step
                     pacman.timeStep = timeStep;
+                    checkMusic(pacman);
                     pacman.move();
                     pinky.move( timeStep, pacman );
                     blinky.move(timeStep, pacman);
@@ -226,6 +281,7 @@ int main( int argc, char* args[] )
                     SDL_RenderPresent( gRenderer );
                 }
                 pacman.isDead = true;
+                Mix_PlayChannel( -1, gDead, 0 );
                 for (int i = 0; i < 10; i++) {
                     SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
                     SDL_RenderClear( gRenderer );
@@ -240,6 +296,8 @@ int main( int argc, char* args[] )
                     SDL_RenderPresent( gRenderer );
                     SDL_Delay(150);
                 }
+                SDL_Delay(500);
+                
                 
                 quit = true;
             }
