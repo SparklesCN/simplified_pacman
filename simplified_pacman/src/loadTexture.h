@@ -6,6 +6,7 @@
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
 #include "constants.h"
+#include <SDL2_ttf/SDL_ttf.h>
 
 //Texture wrapper class
 class LTexture
@@ -42,6 +43,9 @@ public:
     void copyPixels( void* pixels );
     int getPitch();
     Uint32 getPixel32( unsigned int x, unsigned int y );
+    bool loadFromRenderedText( std::string textureText, SDL_Color textColor, SDL_Renderer* gRenderer );
+    //Globally used font
+    TTF_Font *gFont = NULL;
     
 private:
     //The actual hardware texture

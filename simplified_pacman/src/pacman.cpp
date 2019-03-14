@@ -20,6 +20,9 @@ Pacman::Pacman()
     furDirection = "NULL";
     powerPillCurPic = "data/images/superpille_1.png";
     curRail = constants.horiRails[36];
+    lifeLeft = 2;
+    inReady = true;
+    score = 0;
     
 }
 
@@ -60,39 +63,42 @@ std::string Pacman::nextPic()
         currentPic = nextPicture;
         return nextPicture;
     }
-    else if (nextPicDelay++ == 50) {
-        if (currentPic == "data/images/pacman_right_1.png") {
-            nextPicture = "data/images/pacman_right_2.png";
+    else {
+        nextPicture ="data/images/pacman_left_1.png";
+        if (nextPicDelay++ == 50) {
+            if (currentPic == "data/images/pacman_right_1.png") {
+                nextPicture = "data/images/pacman_right_2.png";
+            }
+            
+            else if (currentPic == "data/images/pacman_right_2.png") {
+                nextPicture = "data/images/pacman_right_1.png";
+            }
+            
+            else if (currentPic == "data/images/pacman_up_1.png") {
+                nextPicture = "data/images/pacman_up_2.png";
+            }
+            
+            else if (currentPic == "data/images/pacman_up_2.png") {
+                nextPicture = "data/images/pacman_up_1.png";
+            }
+            
+            else if (currentPic == "data/images/pacman_left_1.png") {
+                nextPicture = "data/images/pacman_left_2.png";
+            }
+            else if (currentPic == "data/images/pacman_left_2.png") {
+                nextPicture = "data/images/pacman_left_1.png";
+            }
+            else if (currentPic == "data/images/pacman_down_1.png") {
+                nextPicture = "data/images/pacman_down_2.png";
+            }
+            else if (currentPic == "data/images/pacman_down_2.png") {
+                nextPicture = "data/images/pacman_down_1.png";
+            }
+            
+            currentPic = nextPicture;
+            nextPicDelay = 0;
+            return nextPicture;
         }
-        
-        else if (currentPic == "data/images/pacman_right_2.png") {
-            nextPicture = "data/images/pacman_right_1.png";
-        }
-        
-        else if (currentPic == "data/images/pacman_up_1.png") {
-            nextPicture = "data/images/pacman_up_2.png";
-        }
-        
-        else if (currentPic == "data/images/pacman_up_2.png") {
-            nextPicture = "data/images/pacman_up_1.png";
-        }
-        
-        else if (currentPic == "data/images/pacman_left_1.png") {
-            nextPicture = "data/images/pacman_left_2.png";
-        }
-        else if (currentPic == "data/images/pacman_left_2.png") {
-            nextPicture = "data/images/pacman_left_1.png";
-        }
-        else if (currentPic == "data/images/pacman_down_1.png") {
-            nextPicture = "data/images/pacman_down_2.png";
-        }
-        else if (currentPic == "data/images/pacman_down_2.png") {
-            nextPicture = "data/images/pacman_down_1.png";
-        }
-        
-        currentPic = nextPicture;
-        nextPicDelay = 0;
-        return nextPicture;
     }
     return currentPic;
 }
@@ -265,7 +271,6 @@ bool Pacman::isLeftRail()
 }
 bool Pacman::isRightRail()
 {
-    printf("3");
     for (int i = 1; i <= 48; i++) {
         if (onCurRailLeft()) {
             return true;
@@ -690,6 +695,7 @@ void Pacman::checkPillCollison()
     for (int i=0; i<pills.size(); i++) {
         if (mPosX-5 <= pills[i].mPosX && mPosX+5 >= pills[i].mPosX && mPosY-5 <= pills[i].mPosY && mPosY+5 >= pills[i].mPosY) {
             pills.erase(pills.begin()+i);
+            score++;
             isEatenPill = true;
         }
     }

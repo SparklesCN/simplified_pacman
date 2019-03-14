@@ -54,7 +54,13 @@ public:
     LTimer huntModeTimer;
     float huntTimeCounter;
     bool isEatenPill;
-
+    int lifeLeft;
+    float mVelX, mVelY;
+    int nextPicDelay;
+    int powerPillNextPicDelay;
+    std::string powerPillCurPic;
+    bool inReady;
+    int score;
 private:
     
     
@@ -65,12 +71,12 @@ private:
     bool isAvaliableRail();
     bool isOutCurRail();
     std::string getCurMoveDir();
-    int powerPillNextPicDelay;
-    std::string powerPillCurPic;
+    
+    
     std::string powerPillNextPic();
-    float mVelX, mVelY;
+    
     std::string nextPic();
-    int nextPicDelay;
+    
     bool isMoved = false;
     std::string curDirection, furDirection;
 };

@@ -49,4 +49,5 @@ dependencies: \
   /Library/Frameworks/SDL2.framework/Headers/SDL_version.h \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/constants.h \
-  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/rail.h
+  /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/rail.h \
+  /Library/Frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h

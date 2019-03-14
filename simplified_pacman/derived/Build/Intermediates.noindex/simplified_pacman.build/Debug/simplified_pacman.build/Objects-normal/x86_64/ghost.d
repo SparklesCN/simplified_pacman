@@ -51,6 +51,7 @@ dependencies: \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/rail.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/loadTexture.h \
   /Library/Frameworks/SDL2_image.framework/Headers/SDL_image.h \
+  /Library/Frameworks/SDL2_ttf.framework/Headers/SDL_ttf.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/pacman.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/pill.h \
   /Users/nathanquan/Desktop/simplified_pacman/simplified_pacman/src/powerPill.h \

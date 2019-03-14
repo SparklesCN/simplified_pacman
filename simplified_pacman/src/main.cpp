@@ -33,10 +33,8 @@ Ghost inky("inky", 371, 174, constants.horiRails[19]);
 
 Labyrinth labyrinth;
 LTexture tagTexture_gameover, tagTexture_ready, tagTexture_score;
+LTexture scoreBoardTexture, tagTexture_life, lifeLeftTexture;
 
-
-//Globally used font
-TTF_Font *gFont = NULL;
 //Rendered texture
 LTexture gTextTexture;
 
@@ -73,6 +71,12 @@ bool init()
     bool success = true;
     
     //Initialize SDL
+    
+    if( TTF_Init() == -1 )
+    {
+        printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+        success = false;
+    }
     
     if( Mix_OpenAudio( 44100, MIX_DEFAULT_FORMAT, 2, 2048 ) < 0 )
     {
@@ -132,7 +136,9 @@ bool loadMedia()
 {
     //Loading success flag
     bool success = true;
-    
+    scoreBoardTexture.gFont = TTF_OpenFont( "data/fonts/Cheapmot.TTF", 28 );
+    lifeLeftTexture.gFont = TTF_OpenFont( "data/fonts/Cheapmot.TTF", 28 );
+    tagTexture_life.gFont = TTF_OpenFont( "data/fonts/Cheapmot.TTF", 28 );
     //Load music
     gMusic = Mix_LoadMUS( "data/sounds/siren_fast.wav" );
     gDead = Mix_LoadWAV( "data/sounds/death.wav" );
@@ -149,17 +155,22 @@ bool loadMedia()
     }
     
     tagTexture_gameover.loadFromFile( "data/images/gameover.png", gRenderer, "BLACK" );
-    tagTexture_score.loadFromFile( "data/images/score.png", gRenderer);
-    tagTexture_ready.loadFromFile( "data/images/ready.png", gRenderer);
+    tagTexture_score.loadFromFile( "data/images/gamescore.png", gRenderer, "BLACK");
     
     
+    if( !tagTexture_ready.loadFromFile( "data/images/getready.png", gRenderer, "BLACK") )
+    {
+        printf( "Failed to load red\ady texture!\n" );
+        success = false;
+    }
     if( !labyrinth.mTexture.loadFromFile( "data/images/hintergrund2.png", gRenderer ) )
     {
         printf( "Failed to load labyrinth texture!\n" );
         success = false;
     }
-    
-    
+    SDL_Color textColor = { 0xff, 0xff, 0xff };
+    tagTexture_life.loadFromRenderedText( "Life", textColor, gRenderer );
+
     
     return success;
 }
@@ -208,115 +219,159 @@ void close()
 int main( int argc, char* args[] )
 {
     //Start up SDL and create window
-    if( !init() )
-    {
-        printf( "Failed to initialize!\n" );
-    }
-    else
-    {
-        //Load media
-        if( !loadMedia() )
-        {
-            printf( "Failed to load media!\n" );
-        }
-        else
-        {
-            //Main loop flag
-            bool quit = false;
-            pacman.setPills();
-            pacman.setPowerPills();
-            
-            Mix_PlayChannel( -1, gIntro, 0 );
-            
-            //Event handler
-            SDL_Event e;
-            
-
-            
-            //Keeps track of time between steps
-            LTimer stepTimer;
-            
-            //While application is running
-            while( !quit )
-            {
-                while( (!pinky.collisionPacman && !blinky.collisionPacman && !inky.collisionPacman && !clyde.collisionPacman && !quit) || pacman.inHuntMode){
-                //Handle events on queue
-                    while( SDL_PollEvent( &e ) != 0 )
-                    {
-                        //User requests quit
-                        if( e.type == SDL_QUIT )
-                        {
-                            quit = true;
-                        }
-                        
-                        //Handle input for the pacman
-                        pacman.handleEvent( e );
-                    }
-                    //Calculate time step
-                    float timeStep = stepTimer.getTicks() / 1000.f;
-                    //Move for time step
-                    pacman.timeStep = timeStep;
-                    checkMusic(pacman);
-                    pacman.move();
-                    
-                    pinky.move( timeStep, pacman );
-                    blinky.move(timeStep, pacman);
-                    inky.move(timeStep, pacman);
-                    clyde.move(timeStep, pacman);
-                    //Restart step timer
-                    stepTimer.start();
-                    
-                    //Clear screen
-                    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-                    SDL_RenderClear( gRenderer );
-                    
-                    labyrinth.render(gRenderer);
-                    //Render pacman
-                    
-                    
-                    pacman.renderAllPills(gRenderer);
-                    pacman.renderAllPowerPills(gRenderer);
-                    pinky.render(gRenderer, pacman);
-                    clyde.render(gRenderer, pacman);
-                    inky.render(gRenderer, pacman);
-                    blinky.render(gRenderer, pacman);
-                    pacman.render(gRenderer);
-                    
-                    
-                    //Update screen
-                    SDL_RenderPresent( gRenderer );
-                }
-                
-                pacman.isDead = true;
-                Mix_PlayChannel( -1, gDead, 0 );
-                for (int i = 0; i < 10; i++) {
-                    SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-                    SDL_RenderClear( gRenderer );
-                    
-//                    labyrinth.render(gRenderer);
-                    tagTexture_score.render(1, 1, gRenderer);
-                    tagTexture_gameover.render(160, 200, gRenderer);
-                    pacman.renderAllPills(gRenderer);
-                    pacman.renderAllPowerPills(gRenderer);
-                    pinky.render(gRenderer, pacman);
-                    clyde.render(gRenderer, pacman);
-                    inky.render(gRenderer, pacman);
-                    blinky.render(gRenderer,pacman);
-                    pacman.render(gRenderer);
-                    SDL_RenderPresent( gRenderer );
-                    SDL_Delay(150);
-                }
-                
-                SDL_Delay(3000);
-                
-                
-                quit = true;
-            }
-        }
-    }
+    init();
+    loadMedia();
+    //Main loop flag
+    bool quit = false;
+    pacman.setPills();
+    pacman.setPowerPills();
     
+    Mix_PlayChannel( -1, gIntro, 0 );
+    
+    //Event handler
+    SDL_Event e;
+    //Keeps track of time between steps
+    LTimer stepTimer, readyTimer;
+    //While application is running
+    readyTimer.start();
+    while( !quit )
+    {
+        while( (!pinky.collisionPacman && !blinky.collisionPacman && !inky.collisionPacman && !clyde.collisionPacman && !quit) || pacman.inHuntMode){
+        //Handle events on queue
+            while( SDL_PollEvent( &e ) != 0 )
+            {
+                //User requests quit
+                if( e.type == SDL_QUIT )
+                {
+                    quit = true;
+                    pacman.lifeLeft = -1;
+                }
+                //Handle input for the pacman
+                pacman.handleEvent( e );
+            }
+            //Calculate time step
+            float timeStep = stepTimer.getTicks() / 1000.f;
+            //Move for time step
+            pacman.timeStep = timeStep;
+            checkMusic(pacman);
+            pacman.move();
+            
+            pinky.move( timeStep, pacman );
+            blinky.move(timeStep, pacman);
+            inky.move(timeStep, pacman);
+            clyde.move(timeStep, pacman);
+            //Restart step timer
+            stepTimer.start();
+            
+            //Clear screen
+            SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+            SDL_RenderClear( gRenderer );
+            labyrinth.render(gRenderer);
+            tagTexture_score.render(530, 30, gRenderer);
+            //Render text
+            SDL_Color textColor = { 250, 255, 0 };
+            scoreBoardTexture.loadFromRenderedText( std::to_string(pacman.score), textColor, gRenderer );
+            lifeLeftTexture.loadFromRenderedText( std::to_string(pacman.lifeLeft), textColor, gRenderer );
+            tagTexture_life.render(540, 340, gRenderer);
+            lifeLeftTexture.render(550, 380, gRenderer);
+            scoreBoardTexture.render(540, 60, gRenderer);
+            if (readyTimer.getTicks()/1000.f > 4) {
+                pacman.inReady = false;
+            }
+            if (pacman.inReady) {
+                tagTexture_ready.render(242, 257, gRenderer);
+            }
+            
+            
+            pacman.renderAllPills(gRenderer);
+            pacman.renderAllPowerPills(gRenderer);
+            pinky.render(gRenderer, pacman);
+            clyde.render(gRenderer, pacman);
+            inky.render(gRenderer, pacman);
+            blinky.render(gRenderer, pacman);
+            pacman.render(gRenderer);
+            
+            
+            //Update screen
+            SDL_RenderPresent( gRenderer );
+        }
+        
+        pacman.isDead = true;
+        Mix_PlayChannel( -1, gDead, 0 );
+        for (int i = 0; i < 10; i++) {
+            SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+            SDL_RenderClear( gRenderer );
+            labyrinth.render(gRenderer);
+            tagTexture_score.render(530, 30, gRenderer);
+            scoreBoardTexture.render(540, 60, gRenderer);
+            tagTexture_life.render(540, 340, gRenderer);
+            lifeLeftTexture.render(550, 380, gRenderer);
+            pacman.renderAllPills(gRenderer);
+            pacman.renderAllPowerPills(gRenderer);
+            pinky.render(gRenderer, pacman);
+            clyde.render(gRenderer, pacman);
+            inky.render(gRenderer, pacman);
+            blinky.render(gRenderer,pacman);
+            pacman.render(gRenderer);
+            SDL_RenderPresent( gRenderer );
+            SDL_Delay(150);
+        }
+        
+        SDL_Delay(1500);
+        
+        if (pacman.lifeLeft-- > 0) {
+            Mix_PlayChannel( -1, gIntro, 0 );
+            quit = false;
+            pacman.isDead = false;
+            //Initialize the position
+            pacman.mPosX = 310;
+            pacman.mPosY = 339;
+            pacman.prePosX = 310;
+            pacman.prePosY = 339;
+            //Initialize the velocity
+            pacman.mVelX = 0;
+            pacman.mVelY = 0;
+            //Initialize the currentPic
+            pacman.currentPic = "data/images/pacman_right_1.png";
+            pacman.nextPicDelay = 0;
+            pacman.powerPillNextPicDelay = 0;
+            pacman.powerPillCurPic = "data/images/superpille_1.png";
+            pacman.curRail = constants.horiRails[36];
+            pinky = Ghost ("pinky", 138, 37, constants.horiRails[1]);
+            blinky = Ghost ("blinky", 480, 37, constants.horiRails[4]);
+            clyde = Ghost ("clyde", 249, 174, constants.horiRails[16]);
+            inky = Ghost ("inky", 371, 174, constants.horiRails[19]);
+            readyTimer.start();
+            pacman.inReady = true;
+        }
+        else {
+            pacman.isDead = true;
+            SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
+            SDL_RenderClear( gRenderer );
+            
+            labyrinth.render(gRenderer);
+            tagTexture_score.render(530, 30, gRenderer);
+            scoreBoardTexture.render(540, 60, gRenderer);
+            tagTexture_life.render(540, 340, gRenderer);
+            lifeLeftTexture.render(550, 380, gRenderer);
+            pacman.renderAllPills(gRenderer);
+            pacman.renderAllPowerPills(gRenderer);
+            pinky.render(gRenderer, pacman);
+            clyde.render(gRenderer, pacman);
+            inky.render(gRenderer, pacman);
+            blinky.render(gRenderer,pacman);
+            tagTexture_gameover.render(160, 200, gRenderer);
+            SDL_RenderPresent( gRenderer );
+            SDL_Delay(3000);
+            quit = true;
+        }
+        
+    }
     //Free resources and close SDL
     close();
     
     return 0;
 }
+    
+
+
