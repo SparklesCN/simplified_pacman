@@ -22,10 +22,7 @@ public:
     //Initializes the variables
     Ghost();
     Ghost(std::string kinds, float x, float y, Rail curRail);
-    
-    //Takes key presses and adjusts the dot's velocity
-    void handleEvent( SDL_Event& e );
-    
+        
     //Moves the dot
     void move( float timeStep, Pacman pacman );
     

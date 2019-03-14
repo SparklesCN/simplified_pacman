@@ -27,8 +27,8 @@ Pill pill(319, 339);
 Pacman pacman;
 Ghost pinky("pinky", 138, 37, constants.horiRails[1]);
 Ghost blinky("blinky", 480, 37, constants.horiRails[4]);
-Ghost clyde("clyde", 290, 215, constants.horiRails[22]);
-Ghost inky("inky", 330, 215, constants.horiRails[23]);
+Ghost clyde("clyde", 249, 174, constants.horiRails[16]);
+Ghost inky("inky", 371, 174, constants.horiRails[19]);
 
 Labyrinth labyrinth;
 

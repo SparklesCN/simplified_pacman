@@ -36,7 +36,7 @@ Ghost::Ghost(std::string kinds, float x, float y, Rail rail)
 
 std::string Ghost::nextPic()
 {
-    if (nextPicDelay++ == 100) {
+    if (nextPicDelay++ == 50) {
         std::string nextPicture;
         
         if (isFood) {
@@ -111,22 +111,6 @@ std::string Ghost::nextPic()
     return currentPic;
 }
 
-void Ghost::handleEvent( SDL_Event& e )
-{
-    //If a key was pressed
-    if( e.type == SDL_KEYDOWN && e.key.repeat == 0 )
-    {
-        //Adjust the velocity
-        switch( e.key.keysym.sym )
-        {
-            case SDLK_UP: currentPic = "data/images/" + ghostKinds + "_up_1.png"; mVelY = 0; mVelX = 0; mVelY -= DOT_VEL; break;
-            case SDLK_DOWN: currentPic = "data/images/" + ghostKinds + "_down_1.png"; mVelY = 0; mVelX = 0; mVelY += DOT_VEL; break;
-            case SDLK_LEFT: currentPic = "data/images/" + ghostKinds + "_left_1.png"; mVelY = 0; mVelX = 0; mVelX -= DOT_VEL; break;
-            case SDLK_RIGHT: currentPic = "data/images/" + ghostKinds + "_right_1.png"; mVelY = 0; mVelX = 0; mVelX += DOT_VEL; break;
-        }
-    }
-}
-
 bool Ghost::isOutCurRail()
 {
     if(mPosX < curRail.x1 || mPosX > curRail.x2 || mPosY < curRail.y1 || mPosY > curRail.y2) {
@@ -139,39 +123,6 @@ bool Ghost::isOutCurRail()
 void Ghost::move( float timeStep, Pacman pacman )
 {
     int randInt = (rand() % (4-1+1))+ 1;
-    
-//    if (pacman.mPosX < mPosX) {
-//        // move left set
-//        currentPic = "data/images/" + ghostKinds + "_left_1.png";
-//        curDirection = "LEFT";
-//        mVelY = 0;
-//        mVelX = 0;
-//        mVelX = -144;
-//    }
-//    else if(pacman.mPosX > mPosX) {
-//        // move right set
-//        currentPic = "data/images/" + ghostKinds + "_right_1.png";
-//        curDirection = "RIGHT";
-//        mVelY = 0;
-//        mVelX = 0;
-//        mVelX = 144;
-//    }
-//    else if(pacman.mPosY < mPosY) {
-//        // move up set
-//        currentPic = "data/images/" + ghostKinds + "_up_1.png";
-//        curDirection = "UP";
-//        mVelY = 0;
-//        mVelX = 0;
-//        mVelY = -144;
-//    }
-//    else if(pacman.mPosY > mPosY) {
-//        // move down set
-//        currentPic = "data/images/" + ghostKinds + "_down_1.png";
-//        curDirection = "DOWN";
-//        mVelY = 0;
-//        mVelX = 0;
-//        mVelY = 144;
-//    }
 
     if (pacman.isMoving() && randInt == 1 && (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown())) {
         // move left set
@@ -256,7 +207,13 @@ void Ghost::move( float timeStep, Pacman pacman )
     }
     
     collisionPacman = isCollisionPcaman(pacman);
-
+    if(collisionPacman) {
+        if (isFood) {
+            mPosX = 310;
+            mPosY = 215;
+            curRail = constants.horiRails[23];
+        }
+    }
     
     
 }

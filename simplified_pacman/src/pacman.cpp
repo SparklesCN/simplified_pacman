@@ -61,12 +61,6 @@ std::string Pacman::nextPic()
         return nextPicture;
     }
     else if (nextPicDelay++ == 50) {
-        
-//        if (mVelX == 0 && mVelY == 0) {
-//            nextPicture = currentPic;
-//        }
-        
-        
         if (currentPic == "data/images/pacman_right_1.png") {
             nextPicture = "data/images/pacman_right_2.png";
         }
@@ -112,50 +106,32 @@ void Pacman::handleEvent( SDL_Event& e )
         switch( e.key.keysym.sym )
         {
             case SDLK_UP:
-                
-//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
                 currentPic = "data/images/pacman_up_1.png";
                 curDirection = "UP";
                 mVelY = 0;
                 mVelX = 0;
                 mVelY = -144;
-//                }
-                
                 break;
             case SDLK_DOWN:
-                
-//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown()){
                 currentPic = "data/images/pacman_down_1.png";
                 curDirection = "DOWN";
                 mVelY = 0;
                 mVelX = 0;
                 mVelY = 144;
-//                }
-
-                
                 break;
             case SDLK_LEFT:
-                
-//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
                 currentPic = "data/images/pacman_left_1.png";
                 curDirection = "LEFT";
                 mVelY = 0;
                 mVelX = 0;
                 mVelX = -144;
-//                }
-                
                 break;
             case SDLK_RIGHT:
-                
-//                if  (onCurRailLeft() || onCurRailRight() || onCurRailUp() || onCurRailDown() || mPosX == 310){
                 currentPic = "data/images/pacman_right_1.png";
                 curDirection = "RIGHT";
                 mVelY = 0;
                 mVelX = 0;
                 mVelX = 144;
-//                }
-
-                
                 break;
         }
     }
@@ -166,13 +142,11 @@ bool Pacman::isOutCurRail()
     if(mPosX < curRail.x1 || mPosX > curRail.x2 || mPosY < curRail.y1 || mPosY > curRail.y2) {
         return true;
     }
-//    std::cout << "??????" << curDirection << std::endl;
     return false;
 }
 
 void Pacman::move()
 {
-    
     //Move the dot left or right
     mPosX += mVelX * timeStep;
     mPosY += mVelY * timeStep;
@@ -211,8 +185,8 @@ void Pacman::move()
     else if (huntModeTimer.getTicks() / 1000.f >= 7) {
         hunModeNearDone = true;
     }
-    prePosX = mPosX;
-    prePosY = mVelY;
+    
+//    std::cout << "x: " << mPosX << " y: " << mPosY << std::endl;
     
     
 }
@@ -272,10 +246,6 @@ bool Pacman::isLeftRail()
             }
         }
         if (onCurRailRight()) {
-//            if (constants.horiRails[i].x1 == curRail.x2 && constants.horiRails[i].y1 == curRail.y2) {
-//                curRail = constants.horiRails[i];
-//                return true;
-//            }
             return true;
         }
         if (onCurRailUp()) {
@@ -295,12 +265,9 @@ bool Pacman::isLeftRail()
 }
 bool Pacman::isRightRail()
 {
+    printf("3");
     for (int i = 1; i <= 48; i++) {
         if (onCurRailLeft()) {
-//            if (constants.horiRails[i].x2 == curRail.x1 && constants.horiRails[i].y2 == curRail.y1) {
-//                curRail = constants.horiRails[i];
-//                return true;
-//            }
             return true;
         }
         if (onCurRailRight()) {
@@ -437,7 +404,7 @@ void Pacman::renderAllPowerPills(SDL_Renderer* gRenderer)
 
 void Pacman::checkPowerPillCollison()
 {
-    for (int i=0; i<pills.size(); i++) {
+    for (int i=0; i<powerPills.size(); i++) {
         if (mPosX-10 <= powerPills[i].mPosX && mPosX+10 >= powerPills[i].mPosX && mPosY-10 <= powerPills[i].mPosY && mPosY+10 >= powerPills[i].mPosY) {
             powerPills.erase(powerPills.begin()+i);
             inHuntMode = true;
@@ -706,50 +673,6 @@ void Pacman::setPills()
     for (int i = 0; i <= 100; i+=14) {
         pills.push_back(Pill(1000, 1000));
     }
-    
-    
-//    for (int i = 37; i <= 92; i+=14) {
-//        pills.push_back(Pill(480, i));
-//    }
-//    for (int i = 92; i <= 133+5; i+=14) {
-//        pills.push_back(Pill(480, i));
-//    }
-    
-//    for (int i = 37; i <= 380 + 10; i+=14) {
-//        pills.push_back(Pill(207, i));
-//    }
-    
-    
-//    for (int i = 330; i <= 412; i+=14) {
-//        pills.push_back(Pill(i, 92));
-//    }
-//    for (int i = 330; i <= 412; i+=14) {
-//        pills.push_back(Pill(i, 92));
-//    }
-//    for (int i = 330; i <= 412; i+=14) {
-//        pills.push_back(Pill(i, 92));
-//    }
-//    for (int i = 330; i <= 412; i+=14) {
-//        pills.push_back(Pill(i, 92));
-//    }
-
-
-//    pills.push_back(Pill(138, 37));
-//    pills.push_back(Pill(218, 339));
-//
-//    pills.push_back(Pill(290, 37));
-//
-//    pills.push_back(Pill(138, 421));
-//    pills.push_back(Pill(152, 421));
-//    pills.push_back(Pill(166, 421));
-//    pills.push_back(Pill(180, 421));
-//    pills.push_back(Pill(194, 421));
-//    pills.push_back(Pill(208, 421));
-//    pills.push_back(Pill(222, 421));
-//    pills.push_back(Pill(236, 421));
-//    pills.push_back(Pill(250, 421));
-//    pills.push_back(Pill(264, 421));
-    //    pills.erase(pills.begin()+1);
 }
 void Pacman::renderAllPills(SDL_Renderer* gRenderer)
 {
@@ -766,7 +689,6 @@ void Pacman::checkPillCollison()
     for (int i=0; i<pills.size(); i++) {
         if (mPosX-5 <= pills[i].mPosX && mPosX+5 >= pills[i].mPosX && mPosY-5 <= pills[i].mPosY && mPosY+5 >= pills[i].mPosY) {
             pills.erase(pills.begin()+i);
-            std::cout << pills.size() << std::endl;
         }
     }
 }

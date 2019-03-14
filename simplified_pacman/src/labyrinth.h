@@ -9,18 +9,10 @@
 class Labyrinth
 {
 public:
-    //The dimensions of the dot
-    static const int DOT_WIDTH = 20;
-    static const int DOT_HEIGHT = 20;
     
     //Initializes the variables
     Labyrinth();
     
-    //Takes key presses and adjusts the dot's velocity
-    void handleEvent( SDL_Event& e );
-    
-    //Moves the dot
-    void move( float timeStep );
     
     //Shows the dot on the screen
     void render(SDL_Renderer* gRenderer);
