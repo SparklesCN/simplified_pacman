@@ -32,7 +32,7 @@ Ghost clyde("clyde", 249, 174, constants.horiRails[16]);
 Ghost inky("inky", 371, 174, constants.horiRails[19]);
 
 Labyrinth labyrinth;
-
+LTexture tagTexture_gameover, tagTexture_ready, tagTexture_score;
 
 
 //Globally used font
@@ -148,6 +148,10 @@ bool loadMedia()
         success = false;
     }
     
+    tagTexture_gameover.loadFromFile( "data/images/gameover.png", gRenderer, "BLACK" );
+    tagTexture_score.loadFromFile( "data/images/score.png", gRenderer);
+    tagTexture_ready.loadFromFile( "data/images/ready.png", gRenderer);
+    
     
     if( !labyrinth.mTexture.loadFromFile( "data/images/hintergrund2.png", gRenderer ) )
     {
@@ -223,6 +227,7 @@ int main( int argc, char* args[] )
             pacman.setPowerPills();
             
             Mix_PlayChannel( -1, gIntro, 0 );
+            
             //Event handler
             SDL_Event e;
             
@@ -253,6 +258,7 @@ int main( int argc, char* args[] )
                     pacman.timeStep = timeStep;
                     checkMusic(pacman);
                     pacman.move();
+                    
                     pinky.move( timeStep, pacman );
                     blinky.move(timeStep, pacman);
                     inky.move(timeStep, pacman);
@@ -280,12 +286,16 @@ int main( int argc, char* args[] )
                     //Update screen
                     SDL_RenderPresent( gRenderer );
                 }
+                
                 pacman.isDead = true;
                 Mix_PlayChannel( -1, gDead, 0 );
                 for (int i = 0; i < 10; i++) {
                     SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
                     SDL_RenderClear( gRenderer );
-                    labyrinth.render(gRenderer);
+                    
+//                    labyrinth.render(gRenderer);
+                    tagTexture_score.render(1, 1, gRenderer);
+                    tagTexture_gameover.render(160, 200, gRenderer);
                     pacman.renderAllPills(gRenderer);
                     pacman.renderAllPowerPills(gRenderer);
                     pinky.render(gRenderer, pacman);
@@ -296,7 +306,8 @@ int main( int argc, char* args[] )
                     SDL_RenderPresent( gRenderer );
                     SDL_Delay(150);
                 }
-                SDL_Delay(500);
+                
+                SDL_Delay(3000);
                 
                 
                 quit = true;

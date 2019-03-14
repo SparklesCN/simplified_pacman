@@ -267,6 +267,35 @@
 			<key>uniqueIdentifier</key>
 			<string>06A40A53-6E66-4D1F-B0D8-58FB29034DBF</string>
 		</dict>
+		<key>06F138E2-3D52-4354-B865-B3A64A9AFB37</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>06F138E2-3D52-4354-B865-B3A64A9AFB37.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233468.44396198</real>
+			<key>timeStoppedRecording</key>
+			<real>574233481.87335706</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>06F138E2-3D52-4354-B865-B3A64A9AFB37</string>
+		</dict>
 		<key>075C4D9E-25BE-442E-932E-92A0E17FA66B</key>
 		<dict>
 			<key>className</key>
@@ -846,6 +875,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>15229BF1-3C6B-4164-9A15-B8436D2807CE</string>
+		</dict>
+		<key>155CDB98-CB3A-410E-80C3-BCF2E5C0F7F8</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>155CDB98-CB3A-410E-80C3-BCF2E5C0F7F8.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233456.82512498</real>
+			<key>timeStoppedRecording</key>
+			<real>574233463.82119</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>155CDB98-CB3A-410E-80C3-BCF2E5C0F7F8</string>
 		</dict>
 		<key>15B02814-1B4A-4604-9B43-BB9180EFECA7</key>
 		<dict>
@@ -1833,6 +1891,35 @@
 			<key>uniqueIdentifier</key>
 			<string>28CD6A0D-D1B0-4D0A-81C2-9A9ED633F2BF</string>
 		</dict>
+		<key>28DFC8A2-DBF4-4B3F-9E4F-455A7238223D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>28DFC8A2-DBF4-4B3F-9E4F-455A7238223D.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233351.93912697</real>
+			<key>timeStoppedRecording</key>
+			<real>574233357.07151306</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>28DFC8A2-DBF4-4B3F-9E4F-455A7238223D</string>
+		</dict>
 		<key>29663222-B20E-4B07-8F5C-917FA681E32C</key>
 		<dict>
 			<key>className</key>
@@ -1890,6 +1977,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>296D5402-F88E-4ECB-BFCD-8F59ED5301C3</string>
+		</dict>
+		<key>299FF612-0393-4AF8-BAF5-A17F1B7FF1C9</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>299FF612-0393-4AF8-BAF5-A17F1B7FF1C9.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233422.00007498</real>
+			<key>timeStoppedRecording</key>
+			<real>574233427.29463005</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>299FF612-0393-4AF8-BAF5-A17F1B7FF1C9</string>
 		</dict>
 		<key>29BFB98B-93E6-48E1-A968-D9E0197C0A84</key>
 		<dict>
@@ -2326,6 +2442,35 @@
 			<key>uniqueIdentifier</key>
 			<string>36825E23-855C-4112-8D9A-A4C16F17CBC8</string>
 		</dict>
+		<key>36B9D6F2-E2E7-41F6-A2D8-BE6B01D9824F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>36B9D6F2-E2E7-41F6-A2D8-BE6B01D9824F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234558.97436595</real>
+			<key>timeStoppedRecording</key>
+			<real>574234590.47921503</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>36B9D6F2-E2E7-41F6-A2D8-BE6B01D9824F</string>
+		</dict>
 		<key>36FE9067-7587-42C8-9EB7-1BAC311D8627</key>
 		<dict>
 			<key>className</key>
@@ -2470,6 +2615,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>3A65495A-86E5-49D9-9852-CDC464B4A8FB</string>
+		</dict>
+		<key>3ACEFA36-723E-4D82-8ACE-7E26B81CAE4E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>3ACEFA36-723E-4D82-8ACE-7E26B81CAE4E.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234289.59926295</real>
+			<key>timeStoppedRecording</key>
+			<real>574234310.56689298</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>3ACEFA36-723E-4D82-8ACE-7E26B81CAE4E</string>
 		</dict>
 		<key>3AE0584D-66F1-438A-B3EF-CA15AE327329</key>
 		<dict>
@@ -3051,6 +3225,64 @@
 			<key>uniqueIdentifier</key>
 			<string>48AE1A0D-0176-4223-9731-EC43282191BE</string>
 		</dict>
+		<key>48DE72B9-ED29-45FF-AA6F-A1A90B588CFF</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>48DE72B9-ED29-45FF-AA6F-A1A90B588CFF.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233325.87039006</real>
+			<key>timeStoppedRecording</key>
+			<real>574233330.37277496</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>48DE72B9-ED29-45FF-AA6F-A1A90B588CFF</string>
+		</dict>
+		<key>4AA2578C-6E64-4B55-91B9-ACF13087580E</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>4AA2578C-6E64-4B55-91B9-ACF13087580E.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234511.57041895</real>
+			<key>timeStoppedRecording</key>
+			<real>574234519.15065002</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>4AA2578C-6E64-4B55-91B9-ACF13087580E</string>
+		</dict>
 		<key>4B65AA01-203B-4F48-99EF-2E1E205E33A5</key>
 		<dict>
 			<key>className</key>
@@ -3602,6 +3834,35 @@
 			<key>uniqueIdentifier</key>
 			<string>55334125-2468-4089-B518-62917676F569</string>
 		</dict>
+		<key>557B978B-EC13-42F0-8B4F-B26E623048E6</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>557B978B-EC13-42F0-8B4F-B26E623048E6.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233796.02251101</real>
+			<key>timeStoppedRecording</key>
+			<real>574233803.92261195</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>557B978B-EC13-42F0-8B4F-B26E623048E6</string>
+		</dict>
 		<key>559D35E1-AC9F-4C87-93F6-0F827C1DF7DE</key>
 		<dict>
 			<key>className</key>
@@ -3804,6 +4065,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>578FBDF5-238A-4EFA-8D72-16D0FD1F0E95</string>
+		</dict>
+		<key>585EABDE-3536-4EF3-8AE6-2F94A50F5D51</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>585EABDE-3536-4EF3-8AE6-2F94A50F5D51.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233341.54145706</real>
+			<key>timeStoppedRecording</key>
+			<real>574233346.20439506</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>585EABDE-3536-4EF3-8AE6-2F94A50F5D51</string>
 		</dict>
 		<key>588BC4BB-42AA-4B4E-B40F-2D0B1241390B</key>
 		<dict>
@@ -4269,6 +4559,35 @@
 			<key>uniqueIdentifier</key>
 			<string>61539060-9B67-4544-A563-CA1083453D6D</string>
 		</dict>
+		<key>618E8BD8-D4B8-44BC-825F-C93ED6C3ACCA</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>618E8BD8-D4B8-44BC-825F-C93ED6C3ACCA.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234134.80857503</real>
+			<key>timeStoppedRecording</key>
+			<real>574234163.97633004</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>618E8BD8-D4B8-44BC-825F-C93ED6C3ACCA</string>
+		</dict>
 		<key>629D1A80-9C8D-4B66-AA05-5F14E0F66947</key>
 		<dict>
 			<key>className</key>
@@ -4326,6 +4645,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>62B8075B-C4C3-441F-9AA4-834ABBF8BA69</string>
+		</dict>
+		<key>63932A19-AD5E-4461-BF60-1989D4109813</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>63932A19-AD5E-4461-BF60-1989D4109813.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233391.73622203</real>
+			<key>timeStoppedRecording</key>
+			<real>574233396.29903197</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>63932A19-AD5E-4461-BF60-1989D4109813</string>
 		</dict>
 		<key>63C779BA-21E6-4C48-B9A2-D082EAF5B06D</key>
 		<dict>
@@ -4646,6 +4994,35 @@
 			<key>uniqueIdentifier</key>
 			<string>6D04E8A0-739B-40CC-BA0C-878E03DB02A7</string>
 		</dict>
+		<key>6D9EB3DD-A2A5-45E0-83BD-EA9E11BB2568</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6D9EB3DD-A2A5-45E0-83BD-EA9E11BB2568.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234172.13346004</real>
+			<key>timeStoppedRecording</key>
+			<real>574234180.29924405</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>6D9EB3DD-A2A5-45E0-83BD-EA9E11BB2568</string>
+		</dict>
 		<key>6DA0F512-864F-4373-A05C-E28ABF891AEB</key>
 		<dict>
 			<key>className</key>
@@ -4790,6 +5167,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>6E5C6FE1-9A8B-44CF-8080-9CCD9CE762E5</string>
+		</dict>
+		<key>6FB554D3-64C2-49DE-9439-BA4817DB037C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>6FB554D3-64C2-49DE-9439-BA4817DB037C.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233028.60025299</real>
+			<key>timeStoppedRecording</key>
+			<real>574233033.179088</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>6FB554D3-64C2-49DE-9439-BA4817DB037C</string>
 		</dict>
 		<key>7027DC8E-C0C2-46A0-8AF3-88B9570AE68A</key>
 		<dict>
@@ -5226,6 +5632,35 @@
 			<key>uniqueIdentifier</key>
 			<string>793485D2-8B28-48C0-8FB3-EA7D10722C6C</string>
 		</dict>
+		<key>79CE0B1A-BC52-4901-9E43-02A7A57D0FBD</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>79CE0B1A-BC52-4901-9E43-02A7A57D0FBD.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234341.46100497</real>
+			<key>timeStoppedRecording</key>
+			<real>574234362.63769197</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>79CE0B1A-BC52-4901-9E43-02A7A57D0FBD</string>
+		</dict>
 		<key>7A9A9433-14B1-4D05-A5FD-718DF73A1326</key>
 		<dict>
 			<key>className</key>
@@ -5516,6 +5951,35 @@
 			<key>uniqueIdentifier</key>
 			<string>7E30A425-1AB7-402B-A027-ECF970D8628C</string>
 		</dict>
+		<key>7EC40E25-3B6D-49EC-A4DB-E1854F275452</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7EC40E25-3B6D-49EC-A4DB-E1854F275452.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233002.72018898</real>
+			<key>timeStoppedRecording</key>
+			<real>574233007.51252604</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>7EC40E25-3B6D-49EC-A4DB-E1854F275452</string>
+		</dict>
 		<key>7EF7959C-C1AD-4C58-9213-75AFFC47622C</key>
 		<dict>
 			<key>className</key>
@@ -5602,6 +6066,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>7F3CE57E-891C-4594-8A60-8D8638E063E9</string>
+		</dict>
+		<key>7FB853F9-F83C-4D98-B6F9-647A7FCCDD69</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>7FB853F9-F83C-4D98-B6F9-647A7FCCDD69.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234206.36359406</real>
+			<key>timeStoppedRecording</key>
+			<real>574234288.673437</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>7FB853F9-F83C-4D98-B6F9-647A7FCCDD69</string>
 		</dict>
 		<key>810AFAB4-6615-421E-9541-C4C3777C6E65</key>
 		<dict>
@@ -6212,6 +6705,35 @@
 			<key>uniqueIdentifier</key>
 			<string>8C261478-9783-4752-B3BD-04CB54873039</string>
 		</dict>
+		<key>8C61E23A-7EE8-4A21-ACDE-FF4080EB7EE0</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>8C61E23A-7EE8-4A21-ACDE-FF4080EB7EE0.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233380.40381205</real>
+			<key>timeStoppedRecording</key>
+			<real>574233385.13092804</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>8C61E23A-7EE8-4A21-ACDE-FF4080EB7EE0</string>
+		</dict>
 		<key>8CA7B301-0E94-4447-A0D4-F25EE9E215AD</key>
 		<dict>
 			<key>className</key>
@@ -6618,6 +7140,35 @@
 			<key>uniqueIdentifier</key>
 			<string>9392D80C-5FD7-443C-B2A2-2CA77EE8E707</string>
 		</dict>
+		<key>94107E05-1B79-4C5C-9903-9A6C061CFCC2</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>94107E05-1B79-4C5C-9903-9A6C061CFCC2.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233970.57786798</real>
+			<key>timeStoppedRecording</key>
+			<real>574233983.71365798</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>94107E05-1B79-4C5C-9903-9A6C061CFCC2</string>
+		</dict>
 		<key>947C993D-D684-45E6-A56E-948300A670E9</key>
 		<dict>
 			<key>className</key>
@@ -6966,6 +7517,35 @@
 			<key>uniqueIdentifier</key>
 			<string>9C3B6A38-E285-4494-B3E9-5CE13C977B9D</string>
 		</dict>
+		<key>9CA0AF93-ED46-434C-86B6-B1361BF4F762</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>9CA0AF93-ED46-434C-86B6-B1361BF4F762.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234371.14081502</real>
+			<key>timeStoppedRecording</key>
+			<real>574234378.68566203</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>9CA0AF93-ED46-434C-86B6-B1361BF4F762</string>
+		</dict>
 		<key>9EBAB7C3-ECEB-4EF8-A9DD-1043DAF18FF2</key>
 		<dict>
 			<key>className</key>
@@ -7168,6 +7748,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>A17B2B69-674E-4694-98BC-BAE2698BDC1E</string>
+		</dict>
+		<key>A1E0B51E-0374-4F9C-A1B9-8CD472502D1A</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A1E0B51E-0374-4F9C-A1B9-8CD472502D1A.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234057.49900997</real>
+			<key>timeStoppedRecording</key>
+			<real>574234065.28016603</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>A1E0B51E-0374-4F9C-A1B9-8CD472502D1A</string>
 		</dict>
 		<key>A21495A0-7151-485E-906D-55EDFA574367</key>
 		<dict>
@@ -7430,6 +8039,35 @@
 			<key>uniqueIdentifier</key>
 			<string>A71BA28A-51E5-46DA-AFCF-C80BD93A4CAE</string>
 		</dict>
+		<key>A8CBA285-F673-423E-9EE9-08BA46F52A03</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>A8CBA285-F673-423E-9EE9-08BA46F52A03.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233367.37559605</real>
+			<key>timeStoppedRecording</key>
+			<real>574233372.04830098</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>A8CBA285-F673-423E-9EE9-08BA46F52A03</string>
+		</dict>
 		<key>A8D7D4BE-5E72-4814-BA3E-9F201CDEDFBF</key>
 		<dict>
 			<key>className</key>
@@ -7662,6 +8300,35 @@
 			<key>uniqueIdentifier</key>
 			<string>ABD771C2-679D-48EB-AA25-1846E6AD723F</string>
 		</dict>
+		<key>AC17BBFE-196A-4A21-BE92-CA4CFA1CEE82</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AC17BBFE-196A-4A21-BE92-CA4CFA1CEE82.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234097.57593405</real>
+			<key>timeStoppedRecording</key>
+			<real>574234108.55767298</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>AC17BBFE-196A-4A21-BE92-CA4CFA1CEE82</string>
+		</dict>
 		<key>AD5E8BC3-963D-44BA-B91D-951CA2591E32</key>
 		<dict>
 			<key>className</key>
@@ -7777,6 +8444,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>AEB23AD3-1D24-4FC7-81D9-2B8445185B8F</string>
+		</dict>
+		<key>AFB8B92C-7271-4DFA-9368-52919851B89F</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>AFB8B92C-7271-4DFA-9368-52919851B89F.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233446.08934796</real>
+			<key>timeStoppedRecording</key>
+			<real>574233452.41304398</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>AFB8B92C-7271-4DFA-9368-52919851B89F</string>
 		</dict>
 		<key>B000645C-B2FD-4124-B813-27AD7DC111AC</key>
 		<dict>
@@ -7922,6 +8618,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>B0C8F4A8-CE8E-4685-9C19-915D8280EFFA</string>
+		</dict>
+		<key>B1AAE655-F91C-447F-B39B-81282A9B5CC3</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>B1AAE655-F91C-447F-B39B-81282A9B5CC3.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234411.91500497</real>
+			<key>timeStoppedRecording</key>
+			<real>574234419.58117402</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>B1AAE655-F91C-447F-B39B-81282A9B5CC3</string>
 		</dict>
 		<key>B2085F7C-72F9-4A84-9877-8D81F3EE1F8F</key>
 		<dict>
@@ -8531,6 +9256,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>BDAE64DA-9B2E-4DCF-B3B1-8D92451ECCE9</string>
+		</dict>
+		<key>BDD974FD-78BA-4FDC-A622-5E924DF34B8B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>BDD974FD-78BA-4FDC-A622-5E924DF34B8B.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234383.26974201</real>
+			<key>timeStoppedRecording</key>
+			<real>574234390.76517606</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>BDD974FD-78BA-4FDC-A622-5E924DF34B8B</string>
 		</dict>
 		<key>BED09D4B-0322-49EC-B393-F10F6F81CE27</key>
 		<dict>
@@ -9257,6 +10011,64 @@
 			<key>uniqueIdentifier</key>
 			<string>D195D58D-9394-4C6F-AC18-10A4723E4A57</string>
 		</dict>
+		<key>D1E5C7A6-F117-4413-94FE-D676BC1BD713</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D1E5C7A6-F117-4413-94FE-D676BC1BD713.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233044.89343798</real>
+			<key>timeStoppedRecording</key>
+			<real>574233049.62940598</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>D1E5C7A6-F117-4413-94FE-D676BC1BD713</string>
+		</dict>
+		<key>D21A270A-EDF0-4932-96B7-3DC1643B2BDA</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D21A270A-EDF0-4932-96B7-3DC1643B2BDA.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234070.65694702</real>
+			<key>timeStoppedRecording</key>
+			<real>574234080.14760804</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>D21A270A-EDF0-4932-96B7-3DC1643B2BDA</string>
+		</dict>
 		<key>D270AAD9-0D5E-4430-9675-BECD7F55F876</key>
 		<dict>
 			<key>className</key>
@@ -9343,6 +10155,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>D42E8FDC-4AEE-4EAE-A75D-A4EAD371F417</string>
+		</dict>
+		<key>D4CAAA95-1EE0-4218-A20F-33384D98E62D</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D4CAAA95-1EE0-4218-A20F-33384D98E62D.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233399.15224397</real>
+			<key>timeStoppedRecording</key>
+			<real>574233403.68564606</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>D4CAAA95-1EE0-4218-A20F-33384D98E62D</string>
 		</dict>
 		<key>D4E348CF-49F2-46BC-9719-B6AF41892504</key>
 		<dict>
@@ -9459,6 +10300,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>D5A9D16E-7F72-4327-B5B7-3EC1AEE74833</string>
+		</dict>
+		<key>D5F0FC8D-F3B3-4B8C-B037-F3C7C43448F7</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>D5F0FC8D-F3B3-4B8C-B037-F3C7C43448F7.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233907.74276698</real>
+			<key>timeStoppedRecording</key>
+			<real>574233920.51156402</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>D5F0FC8D-F3B3-4B8C-B037-F3C7C43448F7</string>
 		</dict>
 		<key>D6475173-6E4F-4A91-BF5D-D5FECBF6D19C</key>
 		<dict>
@@ -9604,6 +10474,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>D94B6BFC-6539-4841-81F8-C8C46CCAE1DC</string>
+		</dict>
+		<key>DB29C1FB-9AA6-4B2E-BA07-7835EA1130CA</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>DB29C1FB-9AA6-4B2E-BA07-7835EA1130CA.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233864.17705798</real>
+			<key>timeStoppedRecording</key>
+			<real>574233874.63211703</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>DB29C1FB-9AA6-4B2E-BA07-7835EA1130CA</string>
 		</dict>
 		<key>DC45FFFE-ACA8-4B4F-9925-02E2AA4F0E9E</key>
 		<dict>
@@ -10301,6 +11200,35 @@
 			<key>uniqueIdentifier</key>
 			<string>EAFB1412-0779-4E9A-B450-AFF53EE14449</string>
 		</dict>
+		<key>EB3A4A57-8C08-4B38-9CEB-4B2A9ADA971B</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EB3A4A57-8C08-4B38-9CEB-4B2A9ADA971B.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574233408.49670696</real>
+			<key>timeStoppedRecording</key>
+			<real>574233417.86577106</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>EB3A4A57-8C08-4B38-9CEB-4B2A9ADA971B</string>
+		</dict>
 		<key>EB9906AA-4C95-42D1-9A42-82C9BA06C3F4</key>
 		<dict>
 			<key>className</key>
@@ -10445,6 +11373,35 @@
 			<string>Debug simplified_pacman</string>
 			<key>uniqueIdentifier</key>
 			<string>EE705DAA-2F21-49C6-AC45-FA6B2E8387E2</string>
+		</dict>
+		<key>EEB290BE-A10E-4023-AC3E-2FEEE15E953C</key>
+		<dict>
+			<key>className</key>
+			<string>DBGConsoleLog</string>
+			<key>documentTypeString</key>
+			<string>com.apple.dt.IDE.DebuggerLogContentType</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.DebugLog</string>
+			<key>fileName</key>
+			<string>EEB290BE-A10E-4023-AC3E-2FEEE15E953C.xcactivitylog</string>
+			<key>highLevelStatus</key>
+			<string>S</string>
+			<key>schemeIdentifier-containerName</key>
+			<string>simplified_pacman project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>simplified_pacman</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Debug simplified_pacman</string>
+			<key>timeStartedRecording</key>
+			<real>574234434.33993304</real>
+			<key>timeStoppedRecording</key>
+			<real>574234441.70053804</real>
+			<key>title</key>
+			<string>Debug simplified_pacman</string>
+			<key>uniqueIdentifier</key>
+			<string>EEB290BE-A10E-4023-AC3E-2FEEE15E953C</string>
 		</dict>
 		<key>EFD1891D-6BEC-4181-B7E5-587E4089E088</key>
 		<dict>
