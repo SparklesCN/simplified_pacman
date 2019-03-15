@@ -20,7 +20,7 @@
 
 ## Features:
 >### *1. EatPill to get SCORE!*
->### *2. PowerPill provide PacMan the power to kill GHOST for a while! * 
+>### *2. PowerPill provide PacMan the power to kill GHOST for a while!* 
 >### *If Ghosts be eaten by Pacman, they will be reset postion to then central of map!*
   
 ![PillGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/87a474c809b398df4d896ef262f30512469929f5/introduction/showPowerPill.gif)  
@@ -84,7 +84,8 @@
 ### 2. Limit the movement and Detect the collision
 >#### In order to limit objs movement, we have to add class Rail to set all CONST rails for them to walk.
 >#### We even graphed a rail map by to determine the correct rail cooridinates and infos.
-// image here
+
+![Rail](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/d64a3000a120bf899bfdbdbe507c4289fbaa52ea/introduction/rail.jpg)
 
 ### 3. PowerPill and HuntMode
 >#### We need relogic lots of part of Pacman and Ghost inoder to make Pacman could eat Ghosts rahter than killed by them when collision.
