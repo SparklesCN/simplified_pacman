@@ -22,7 +22,7 @@ pacman:
 	g++ -std=c++14 -g -o pacman.exe main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 
 game.exe:
-    g++ -g -std=c++14 `sdl2-config --cflags` *.cpp -o game.exe `sdl2-config --static-libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+	g++ -g -std=c++14 `sdl2-config --cflags` *.cpp -o game.exe `sdl2-config --static-libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 clean:
 	rm *.o *.exe
