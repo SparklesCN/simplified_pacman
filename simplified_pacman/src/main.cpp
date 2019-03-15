@@ -268,13 +268,10 @@ int main( int argc, char* args[] )
             SDL_RenderClear( gRenderer );
             labyrinth.render(gRenderer);
             tagTexture_score.render(530, 30, gRenderer);
-            //Render text
             SDL_Color textColor = { 250, 255, 0 };
-            scoreBoardTexture.loadFromRenderedText( std::to_string(pacman.score), textColor, gRenderer );
+            scoreBoardTexture.loadFromRenderedText( std::to_string(pacman.score*10), textColor, gRenderer );
             lifeLeftTexture.loadFromRenderedText( std::to_string(pacman.lifeLeft), textColor, gRenderer );
-            tagTexture_life.render(540, 340, gRenderer);
-            lifeLeftTexture.render(550, 380, gRenderer);
-            scoreBoardTexture.render(540, 60, gRenderer);
+
             if (readyTimer.getTicks()/1000.f > 4) {
                 pacman.inReady = false;
             }
@@ -282,7 +279,9 @@ int main( int argc, char* args[] )
                 tagTexture_ready.render(242, 257, gRenderer);
             }
             
-            
+            tagTexture_life.render(540, 340, gRenderer);
+            lifeLeftTexture.render(550, 380, gRenderer);
+            scoreBoardTexture.render(540, 60, gRenderer);
             pacman.renderAllPills(gRenderer);
             pacman.renderAllPowerPills(gRenderer);
             pinky.render(gRenderer, pacman);
