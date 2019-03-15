@@ -21,5 +21,5 @@
 
 >### *GAME OVER WHEN ALL LIFE SPENT!* 
 
-![OVERGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/859280addee501ec06fec65e2c3dc6e3c83c8a6f/introduction/showGameOver.gif)
+![OVERGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/f6074201a0ebdb449050c18569233e35c5ac997c/introduction/showGameOver.gif)
 
