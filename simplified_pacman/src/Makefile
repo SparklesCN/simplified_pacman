@@ -30,3 +30,7 @@ game:
 
 # clean:
 # 	rm *.o *.exe
+
+
+clean:
+	rm *.o *.exe
