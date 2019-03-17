@@ -18,11 +18,15 @@
 # all : $(OBJS)
 # 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 
-pacman:
-	g++ -std=c++14 -g -o pacman.exe main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
+# pacman:
+# 	g++ -std=c++14 -g -o pacman.exe main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 
-game.exe:
-    g++ -g -std=c++14 `sdl2-config --cflags` *.cpp -o game.exe `sdl2-config --static-libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+# game.exe:
+# 	g++ -g -std=c++14 `sdl2-config --cflags` *.cpp -o game.exe `sdl2-config --static-libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
-clean:
-	rm *.o *.exe
+game:
+	g++ -std=c++14 main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -o pacman.exe -F/Library/Frameworks -framework SDL2 -framework SDL2_image -framework SDL2_ttf -framework SDL2_mixer
+
+
+# clean:
+# 	rm *.o *.exe
