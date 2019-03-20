@@ -3,11 +3,11 @@
 
 //Using SDL, SDL_image, standard IO, and, strings
 #include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
+#include <SDL2/SDL_image.h>
 #include <stdio.h>
 #include <string>
 #include <vector>
-#include <SDL2_ttf/SDL_ttf.h>
+#include <SDL2/SDL_ttf.h>
 #include "pacman.h"
 #include "ghost.h"
 #include "gameTimer.h"
@@ -15,7 +15,7 @@
 #include "rail.h"
 #include "pill.h"
 #include "constants.h"
-#include <SDL2_mixer/SDL_mixer.h>
+#include <SDL2/SDL_mixer.h>
 //Screen dimension constants
 const int SCREEN_WIDTH = 640;
 const int SCREEN_HEIGHT = 480;

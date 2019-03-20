@@ -11,18 +11,18 @@ CC = g++ -std=c++14
 COMPILER_FLAGS = -w
 
 #LINKER_FLAGS specifies the libraries we're linking against
-LINKER_FLAGS = -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lSDL2
+LINKER_FLAGS =  -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
 #OBJ_NAME specifies the name of our exectuable
 OBJ_NAME = pacman
 
 #This is the target that compiles our executable
-all : $(OBJS)
+pacman : $(OBJS)
 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 
 
-game:
-	g++ -std=c++14 main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -o pacman.exe -F/Library/Frameworks -framework SDL2 -framework SDL2_image -framework SDL2_ttf -framework SDL2_mixer
+# game:
+# 	g++ -std=c++14 main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -o pacman.exe -F/Library/Frameworks -framework SDL2 -framework SDL2_image -framework SDL2_ttf -framework SDL2_mixer
 
 
 # clean:
@@ -30,4 +30,4 @@ game:
 
 
 clean:
-	rm *.o *.exe
+	rm pacman
