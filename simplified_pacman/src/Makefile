@@ -1,28 +1,25 @@
-# #OBJS specifies which files to compile as part of the project
-# OBJS = main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp
+# reference from http://lazyfoo.net/tutorials/SDL/01_hello_SDL/linux/cli/index.php
 
-# #CC specifies which compiler we're using
-# CC = g++ -std=c++14
+#OBJS specifies which files to compile as part of the project
+OBJS = *.cpp
 
-# #COMPILER_FLAGS specifies the additional compilation options we're using
-# # -w suppresses all warnings
-# COMPILER_FLAGS = -w
+#CC specifies which compiler we're using
+CC = g++ -std=c++14
 
-# #LINKER_FLAGS specifies the libraries we're linking against
-# LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer
+#COMPILER_FLAGS specifies the additional compilation options we're using
+# -w suppresses all warnings
+COMPILER_FLAGS = -w
 
-# #OBJ_NAME specifies the name of our exectuable
-# OBJ_NAME = PacMan
+#LINKER_FLAGS specifies the libraries we're linking against
+LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 
-# #This is the target that compiles our executable
-# all : $(OBJS)
-# 	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+#OBJ_NAME specifies the name of our exectuable
+OBJ_NAME = pacman
 
-# pacman:
-# 	g++ -std=c++14 -g -o pacman.exe main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
+#This is the target that compiles our executable
+all : $(OBJS)
+	$(CC) $(OBJS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
 
-# game.exe:
-# 	g++ -g -std=c++14 `sdl2-config --cflags` *.cpp -o game.exe `sdl2-config --static-libs` -lSDL2_image -lSDL2_ttf -lSDL2_mixer
 
 game:
 	g++ -std=c++14 main.cpp labyrinth.cpp constants.cpp rail.cpp loadTexture.cpp pacman.cpp gameTimer.cpp ghost.cpp pill.cpp powerPill.cpp -o pacman.exe -F/Library/Frameworks -framework SDL2 -framework SDL2_image -framework SDL2_ttf -framework SDL2_mixer
