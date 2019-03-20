@@ -2,12 +2,18 @@
 
 ![ReadyGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/c995e50dcc1163d5cc3539d5f3fe27d1f1908939/introduction/showReady.gif)  
 
+## References List:
+>### -> Lazy Foo' Productions (Some loadTexture functions and structure from this SDL2 tutorial)
+>###	http://lazyfoo.net/tutorials/SDL
+
+>### -> ebuc99's Pacman (Get medias from this git, and hinted by it's Rail structure)
+>### https://github.com/ebuc99/pacman
+
+
 ## How to Run:
->### get into the most-out folder
+>### get into /src folder
 >### $ make pacman
->### or
->### $ make game.exe
->### then run the excutable file! 
+>### $ ./pacman
 
 ## Bugs Report:
 >### *Don't eat another PowerPill when u r in Hunting mode!!!!!!*
