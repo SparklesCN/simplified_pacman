@@ -1,6 +1,6 @@
 # Simplified PacMan
 
-![ReadyGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/c995e50dcc1163d5cc3539d5f3fe27d1f1908939/introduction/showReady.gif)  
+![ReadyGIF](https://github.com/SparklesCN/simplified_pacman/blob/master/introduction/showReady.gif)  
 
 ## References List:
 >### -> Lazy Foo' Productions (Some loadTexture functions and structure from this SDL2 tutorial)
@@ -29,17 +29,17 @@
 >### *2. PowerPill provide PacMan the power to kill GHOST for a while!* 
 >### *If Ghosts be eaten by Pacman, they will be reset postion to then central of map!*
   
-![PillGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/87a474c809b398df4d896ef262f30512469929f5/introduction/showPowerPill.gif)  
+![PillGIF](https://github.com/SparklesCN/simplified_pacman/blob/master/introduction/showPowerPill.gif)  
 
 >### *3. Touch Ghost Will be kill!* 
 >### *3 life only!* 
 >### *Will be rescue after be killed if still have life avalible* 
 
-![PillGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/87a474c809b398df4d896ef262f30512469929f5/introduction/showDeath.gif)
+![PillGIF](https://github.com/SparklesCN/simplified_pacman/blob/master/introduction/showDeath.gif)
 
 >### *4. GAME OVER WHEN ALL LIFE SPENT!* 
 
-![OVERGIF](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/f6074201a0ebdb449050c18569233e35c5ac997c/introduction/showGameOver.gif)
+![OVERGIF](https://github.com/SparklesCN/simplified_pacman/blob/master/introduction/showGameOver.gif)
 
 ## Project Structure:
 >### Classes:
@@ -91,7 +91,7 @@
 >#### In order to limit objs movement, we have to add class Rail to set all CONST rails for them to walk.
 >#### We even graphed a rail map by to determine the correct rail cooridinates and infos.
 
-![Rail](https://bitbucket.org/XiaodongQuan/simplified_pacman/raw/d64a3000a120bf899bfdbdbe507c4289fbaa52ea/introduction/rail.jpg)
+![Rail](https://github.com/SparklesCN/simplified_pacman/blob/master/introduction/rail.jpg)
 
 ### 3. PowerPill and HuntMode
 >#### We need relogic lots of part of Pacman and Ghost inoder to make Pacman could eat Ghosts rahter than killed by them when collision.
